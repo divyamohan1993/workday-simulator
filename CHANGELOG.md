@@ -8,6 +8,32 @@ versioning.
 
 ### Added
 
+- 2026-07-22 - Reference OneIM receiver, HTTP/WS server, infrastructure, and dashboard;
+  full integration verified green.
+  - `src/infra/**`: better-sqlite3 + Drizzle stores (runs, scenarios, targets) with soft
+    delete and newest-first pagination, an in-memory metrics registry (fixed-bucket and
+    reservoir histograms, an rps window, and a recent-events ring), and the pino logger
+    factory with always-on secret redaction and correlation ids.
+  - `src/receiver/**`: the built-in reference One Identity Manager. SCIM 2.0
+    Users/Groups/Bulk, webhook/REST/HR-batch ingest, HMAC verification, per-connector
+    asynchronous provisioning with simulated latency and failure, segregation-of-duties
+    detection, and orphan/dormant accounting; keeps its own in-memory state.
+  - `src/server/**`: the composition root (`buildServer`) and the process entry
+    (`main.ts`). Assembles every module, mounts the receiver plugin, registers the REST API
+    and the telemetry WebSocket, admin bearer auth with a failed-attempt throttle, uniform
+    error bodies, secret redaction, static dashboard serving, and a self-provisioned
+    loopback receiver target plus a default scenario.
+  - `web/src/**`: the React 19 + Tailwind dashboard. Auth gate, live-ops view (frame-driven
+    telemetry over the WebSocket), scenario builder, targets manager, and run history, with
+    recharts code-split into a lazy chunk.
+  - Integration: `tsc --noEmit`, `build:server`, `build:web`, and the 375-test vitest suite
+    all pass. A live-run smoke against the built server generated about 26 events/sec,
+    delivered them over the loopback SCIM target, and the built-in receiver provisioned
+    them; `GET /api/health` and `GET /api/health/ready` both return 200. `better-sqlite3`
+    built and ran natively on Node 24 for Windows in this environment.
+- 2026-07-22 - Simulation core recovered post power-cut (prior commit): the workforce
+  domain (`src/domain/**`), the engine clock/arrival/bus/runtime and chaos (`src/engine/**`),
+  the event generators (`src/events/**`), and the delivery adapters (`src/delivery/**`).
 - 2026-07-22 - Project foundation and frozen contracts.
   - Root `package.json` (Node 22 ESM, pnpm) with the full runtime and dev toolchain.
   - `src/types/index.ts`: the shared type universe. Deutsche Bank org and identity model,

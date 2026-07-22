@@ -3,12 +3,79 @@
 @tailwind utilities;
 
 /*
- * Minimal base layer. The web builder owns the full cinematic design system; this
- * only establishes a dark, full-bleed canvas so the scaffold does not flash white.
+ * ============================================================================
+ * Workday Simulator - "Bank Operations Control Room" design system
+ * ============================================================================
+ * A single, deliberate dark identity: a financial NOC / trading-floor terminal.
+ * The look is precise, not playful. Depth comes from layered navy surfaces,
+ * hairline borders and a thin status accent on every panel; the data is the
+ * only thing allowed to be loud.
+ *
+ * Chart series colors live in `lib/palette.ts` (JS needs the hex values for
+ * recharts). The UI-chrome tokens below mirror the same validated palette so
+ * the two never drift. All values were checked with the dataviz validator
+ * against the panel surface for CVD safety and >= 3:1 contrast.
  */
+
 @layer base {
   :root {
     color-scheme: dark;
+
+    /* Surfaces: page plane -> panel -> raised inset -> hover */
+    --surface-0: #05070f;
+    --surface-1: #0b1020;
+    --surface-2: #10162e;
+    --surface-3: #161f3c;
+    --surface-scrim: rgba(3, 5, 12, 0.72);
+
+    /* Hairlines */
+    --border: rgba(148, 163, 210, 0.14);
+    --border-strong: rgba(148, 163, 210, 0.26);
+    --border-faint: rgba(148, 163, 210, 0.08);
+
+    /* Ink */
+    --ink: #eef2fb;
+    --ink-2: #aab4cf;
+    --ink-3: #6b7796;
+    --ink-inverse: #05070f;
+
+    /* Brand + accents */
+    --db-blue: #2f6bd6;
+    --accent: #3b82f6;
+    --accent-cyan: #22d3ee;
+    --accent-glow: rgba(34, 211, 238, 0.35);
+
+    /* Validated categorical series (dark surface) */
+    --cat-auth: #3987e5;
+    --cat-jml: #d95926;
+    --cat-access: #199e70;
+    --cat-txn: #c98500;
+    --cat-compliance: #d55181;
+
+    /* Status (fixed, never themed) */
+    --status-good: #0ca30c;
+    --status-warning: #fab219;
+    --status-serious: #ec835a;
+    --status-critical: #d03b3b;
+
+    /* Chart chrome */
+    --grid: rgba(148, 163, 210, 0.09);
+    --axis: #6b7796;
+    --baseline: rgba(148, 163, 210, 0.2);
+
+    /* Geometry + motion */
+    --radius: 14px;
+    --radius-sm: 9px;
+    --radius-lg: 20px;
+    --shadow-panel: 0 1px 0 rgba(255, 255, 255, 0.03) inset,
+      0 18px 40px -24px rgba(0, 0, 0, 0.9);
+    --shadow-pop: 0 24px 60px -20px rgba(0, 0, 0, 0.85);
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'Menlo', monospace;
+  }
+
+  * {
+    border-color: var(--border);
   }
 
   html,
@@ -19,9 +86,459 @@
 
   body {
     margin: 0;
-    background: radial-gradient(1200px 800px at 20% -10%, #16204a 0%, #0a0e27 55%, #05070f 100%);
-    color: #e5e7eb;
-    font-family: Inter, system-ui, -apple-system, sans-serif;
+    background:
+      radial-gradient(1100px 620px at 82% -8%, rgba(34, 211, 238, 0.08), transparent 60%),
+      radial-gradient(1200px 800px at 8% -12%, rgba(47, 107, 214, 0.14), transparent 55%),
+      var(--surface-0);
+    color: var(--ink);
+    font-family: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    /* No body scroll in the app (the shell's <main> owns scrolling), but the
+       auth gate and splash are free to scroll on short viewports. */
+    overflow-x: hidden;
+  }
+
+  /* A faint terminal grid, fixed behind everything. Purely decorative. */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(var(--border-faint) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border-faint) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(circle at 50% 0%, black, transparent 78%);
+    opacity: 0.5;
+    z-index: 0;
+  }
+
+  ::selection {
+    background: rgba(34, 211, 238, 0.28);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent-cyan);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  /* Scrollbars tuned for the dark terminal */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(148, 163, 210, 0.28) transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  *::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 210, 0.22);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 210, 0.4);
+    background-clip: content-box;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin: 0;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+  }
+
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+  .mono {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer components {
+  /* --- Panels -------------------------------------------------------------- */
+  .panel {
+    position: relative;
+    background: linear-gradient(180deg, var(--surface-1), var(--surface-0));
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-panel);
+  }
+  .panel-hd {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--border-faint);
+  }
+  .panel-title {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.72rem;
+    font-weight: 650;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  /* Thin status accent that rides the top edge of a panel */
+  .panel-accent::after {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 2px;
+    border-radius: var(--radius) var(--radius) 0 0;
+    background: linear-gradient(90deg, var(--accent), var(--accent-cyan));
+    opacity: 0.9;
+  }
+
+  /* --- Buttons ------------------------------------------------------------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    padding: 0.5rem 0.9rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    color: var(--ink);
+    font-size: 0.82rem;
+    font-weight: 550;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+      transform 0.12s var(--ease),
+      background 0.15s var(--ease),
+      border-color 0.15s var(--ease),
+      box-shadow 0.15s var(--ease);
+    white-space: nowrap;
+  }
+  .btn:hover:not(:disabled) {
+    background: var(--surface-3);
+    border-color: var(--border-strong);
+  }
+  .btn:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+  .btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .btn-primary {
+    background: linear-gradient(180deg, var(--accent), #2563eb);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 8px 22px -12px rgba(59, 130, 246, 0.9);
+  }
+  .btn-primary:hover:not(:disabled) {
+    background: linear-gradient(180deg, #4d90ff, var(--accent));
+    border-color: transparent;
+  }
+  .btn-danger {
+    background: color-mix(in srgb, var(--status-critical) 22%, var(--surface-2));
+    border-color: color-mix(in srgb, var(--status-critical) 45%, transparent);
+    color: #ffd7d3;
+  }
+  .btn-danger:hover:not(:disabled) {
+    background: color-mix(in srgb, var(--status-critical) 32%, var(--surface-2));
+  }
+  .btn-ghost {
+    background: transparent;
+    border-color: transparent;
+  }
+  .btn-ghost:hover:not(:disabled) {
+    background: var(--surface-2);
+    border-color: var(--border);
+  }
+  .btn-sm {
+    padding: 0.35rem 0.6rem;
+    font-size: 0.75rem;
+  }
+  .btn-icon {
+    padding: 0.45rem;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  /* --- Inputs -------------------------------------------------------------- */
+  .field-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    margin-bottom: 0.35rem;
+  }
+  .input,
+  .select,
+  .textarea {
+    width: 100%;
+    padding: 0.55rem 0.7rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--surface-0);
+    color: var(--ink);
+    font-size: 0.85rem;
+    font-family: inherit;
+    transition:
+      border-color 0.15s var(--ease),
+      box-shadow 0.15s var(--ease);
+  }
+  .input::placeholder,
+  .textarea::placeholder {
+    color: var(--ink-3);
+  }
+  .input:focus,
+  .select:focus,
+  .textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.22);
+  }
+  .input-mono {
+    font-family: var(--font-mono);
+    letter-spacing: 0.02em;
+  }
+  .select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7796' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.6rem center;
+    padding-right: 2rem;
+  }
+
+  /* Range slider */
+  .range {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--surface-3);
+    outline-offset: 4px;
+  }
+  .range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent-cyan);
+    border: 2px solid var(--surface-0);
+    box-shadow: 0 0 0 1px var(--accent-cyan), 0 0 12px var(--accent-glow);
+    cursor: pointer;
+  }
+  .range::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent-cyan);
+    border: 2px solid var(--surface-0);
+    cursor: pointer;
+  }
+
+  /* --- Badges + pills ------------------------------------------------------ */
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 999px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    font-size: 0.75rem;
+  }
+
+  /* --- Nav ----------------------------------------------------------------- */
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border-radius: var(--radius-sm);
+    color: var(--ink-2);
+    font-size: 0.85rem;
+    font-weight: 550;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: background 0.15s var(--ease), color 0.15s var(--ease);
+    text-align: left;
+  }
+  .nav-item:hover {
+    background: var(--surface-2);
+    color: var(--ink);
+  }
+  .nav-item[aria-current='page'] {
+    background: linear-gradient(90deg, rgba(59, 130, 246, 0.18), rgba(34, 211, 238, 0.06));
+    border-color: var(--border);
+    color: #fff;
+  }
+  .nav-item[aria-current='page'] .nav-ic {
+    color: var(--accent-cyan);
+  }
+
+  /* --- Stat tile ----------------------------------------------------------- */
+  .stat {
+    padding: 0.85rem 1rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--surface-1);
+  }
+  .stat-label {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .stat-value {
+    font-size: 1.65rem;
+    font-weight: 680;
+    line-height: 1.1;
+    margin-top: 0.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  /* --- Live signal --------------------------------------------------------- */
+  .live-dot {
+    position: relative;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex: none;
+  }
+  .live-dot::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.35;
+    animation: ping 1.8s var(--ease) infinite;
+  }
+
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      var(--surface-2) 25%,
+      var(--surface-3) 37%,
+      var(--surface-2) 63%
+    );
+    background-size: 400% 100%;
+    animation: shimmer 1.4s ease infinite;
+    border-radius: var(--radius-sm);
+  }
+
+  .ticker-row {
+    animation: ticker-in 0.35s var(--ease) both;
+  }
+
+  .kbd {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 6px;
+    border: 1px solid var(--border-strong);
+    background: var(--surface-2);
+    color: var(--ink-2);
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: color-mix(in srgb, var(--surface-1) 82%, transparent);
+    backdrop-filter: blur(14px) saturate(1.2);
+  }
+  .above {
+    position: relative;
+    z-index: 1;
+  }
+  .clip-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .no-native-appearance {
+    -webkit-appearance: none;
+    appearance: none;
+  }
+}
+
+/* --- Keyframes ------------------------------------------------------------- */
+@keyframes ping {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.5;
+  }
+  75%,
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+@keyframes ticker-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin {
+  animation: spin 0.8s linear infinite;
+}
+
+/* Respect the user's motion preference everywhere. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .live-dot::after {
+    display: none;
   }
 }
