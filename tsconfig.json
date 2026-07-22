@@ -1,0 +1,46 @@
+{
+  "compilerOptions": {
+    /* Module system: Node.js native ESM. Backend imports MUST use explicit
+       ".js" extensions (nodenext) and relative paths. There is deliberately no
+       path alias for backend code because tsc never rewrites aliases in emitted
+       JS, which would break `node dist/server/main.js` at runtime. */
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "target": "es2022",
+    "lib": ["ES2022"],
+    "moduleDetection": "force",
+
+    /* Emit (inherited by tsconfig.build.json; the typecheck script passes --noEmit). */
+    "rootDir": "src",
+    "outDir": "dist",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+
+    /* Strictness. verbatimModuleSyntax forces `import type` for type-only imports
+       so nothing type-only is accidentally emitted as a runtime import.
+       noUncheckedIndexedAccess is on because this codebase indexes into arrays and
+       records constantly (weighted picks, histograms) and silent undefined is a bug. */
+    "strict": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": false,
+    "exactOptionalPropertyTypes": false,
+
+    /* Interop and hygiene. */
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+
+    /* Only Node ambient types in backend code. Tests import from "vitest"
+       explicitly; library types (fastify, better-sqlite3) are imported per-module. */
+    "types": ["node"]
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "web"]
+}

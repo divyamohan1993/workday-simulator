@@ -1,0 +1,55 @@
+# Workday Simulator - app plus an optional NATS server.
+# Basic:            docker compose up --build
+# With NATS:        NATS_URL=nats://nats:4222 docker compose --profile nats up --build
+#
+# ADMIN_TOKEN is required and has no default on purpose; the app refuses to start
+# without it. Put it in a local .env file next to this compose file.
+
+services:
+  app:
+    build:
+      context: .
+      target: runtime
+    image: workday-simulator:latest
+    container_name: workday-simulator
+    ports:
+      - '8477:8477'
+    environment:
+      NODE_ENV: production
+      PORT: '8477'
+      HOST: 0.0.0.0
+      DB_PATH: /app/data/workday.db
+      LOG_LEVEL: ${LOG_LEVEL:-info}
+      ADMIN_TOKEN: ${ADMIN_TOKEN:?ADMIN_TOKEN must be set}
+      RECEIVER_TOKEN: ${RECEIVER_TOKEN:-}
+      NATS_URL: ${NATS_URL:-}
+      MAX_RPS: ${MAX_RPS:-2000}
+      WORKDAY_ACCEL: ${WORKDAY_ACCEL:-60}
+      SEED: ${SEED:-db-workday-2026}
+    volumes:
+      - workday-data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test:
+        - CMD
+        - node
+        - -e
+        - "fetch('http://127.0.0.1:8477/api/health').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
+  nats:
+    image: nats:2-alpine
+    container_name: workday-nats
+    profiles:
+      - nats
+    command:
+      - '-js'
+    ports:
+      - '4222:4222'
+    restart: unless-stopped
+
+volumes:
+  workday-data:

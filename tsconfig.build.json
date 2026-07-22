@@ -1,0 +1,20 @@
+{
+  /* Production server build: emits dist/ from src/ (tsc -p tsconfig.build.json).
+     Extends the base config, turns emit on, and excludes tests and web. The web
+     app is built separately by Vite (build:web). */
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false
+  },
+  "include": ["src"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "web",
+    "src/**/*.test.ts",
+    "src/**/*.spec.ts",
+    "src/**/__tests__/**",
+    "src/**/__mocks__/**",
+    "src/**/*.test-d.ts"
+  ]
+}

@@ -1,0 +1,31 @@
+# Caddy site for the Workday Simulator dashboard and APIs.
+#
+# Import this from your main Caddyfile:  import deploy/caddy/workday.dmj.one.caddy
+#
+# The upstream is the app container on port 8477. When Caddy runs on the host and
+# the app runs in Docker, use host.docker.internal:8477; when both run in the same
+# Docker network, use the service name instead (workday-simulator:8477). Caddy
+# upgrades WebSocket connections (/ws/telemetry) automatically.
+
+workday.dmj.one {
+	encode zstd gzip
+
+	# Local dev / behind Cloudflare which terminates public TLS. Cloudflare proxies
+	# to this origin; "tls internal" serves a locally-trusted certificate to CF.
+	tls internal
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "geolocation=(), microphone=(), camera=()"
+		-Server
+	}
+
+	reverse_proxy host.docker.internal:8477 {
+		header_up X-Real-IP {remote_host}
+		header_up X-Forwarded-For {remote_host}
+		header_up X-Forwarded-Proto {scheme}
+	}
+}

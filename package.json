@@ -1,0 +1,72 @@
+{
+  "name": "workday-simulator",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Deutsche Bank Workday Simulator - a production-grade workforce and identity traffic generator that models an entire bank workday and delivers it as a realistic event stream to an Identity Manager (OneIM) over SCIM, webhook, REST, NATS and batch HR feeds.",
+  "license": "UNLICENSED",
+  "packageManager": "pnpm@10.30.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server/main.ts",
+    "dev:web": "vite",
+    "build": "pnpm run build:server && pnpm run build:web",
+    "build:server": "tsc -p tsconfig.build.json",
+    "build:web": "vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "lint": "eslint .",
+    "start": "node dist/server/main.js",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^10.5.0",
+    "@fastify/cors": "^11.3.0",
+    "@fastify/helmet": "^13.1.0",
+    "@fastify/rate-limit": "^11.1.0",
+    "@fastify/static": "^10.1.1",
+    "@fastify/websocket": "^11.3.0",
+    "better-sqlite3": "^13.0.1",
+    "dayjs": "^1.11.21",
+    "drizzle-orm": "^0.45.2",
+    "fastify": "^5.10.0",
+    "nanoid": "^6.0.0",
+    "nats": "^2.29.3",
+    "pino": "^10.3.1",
+    "pino-pretty": "^13.1.3",
+    "undici": "^8.8.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "^22.12.0",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.4",
+    "autoprefixer": "^10.5.4",
+    "clsx": "^2.1.1",
+    "drizzle-kit": "^0.31.10",
+    "eslint": "^10.7.0",
+    "framer-motion": "^12.42.2",
+    "postcss": "^8.5.22",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "recharts": "^3.10.0",
+    "tailwindcss": "^3.4.19",
+    "tsx": "^4.23.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.65.0",
+    "vite": "^8.1.5",
+    "vitest": "^4.1.10",
+    "zustand": "^5.0.14"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3",
+      "esbuild"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+# Normalize line endings. The repo stores LF for all text so shell scripts and
+# config work on the Linux/Docker deploy target regardless of the author's OS.
+* text=auto eol=lf
+
+# Windows batch scripts require CRLF to run.
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Treat native and database artifacts as binary.
+*.node binary
+*.db binary
+*.png binary
+*.jpg binary
+*.woff2 binary
