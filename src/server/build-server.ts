@@ -200,9 +200,17 @@ export async function buildServer(config: AppConfig, overrides: BuildServerOverr
     genReqId: () => correlationId(),
     requestIdHeader: false,
     logController: new LogController({ requestIdLogLabel: CORRELATION_KEY }),
-    // Behind Caddy/Cloudflare: trust the proxy so request.ip is the real client for
-    // the failed-auth tracker and the receiver's per-source admission.
-    trustProxy: true,
+    // Behind Caddy/Cloudflare, trust ONLY the loopback hop (Caddy reaches the app on
+    // 127.0.0.1 after the loopback-only port publish). request.ip is then derived from
+    // the X-Forwarded-For that Caddy writes with its own peer, so it is a genuine,
+    // NON-forgeable identifier (a Cloudflare edge IP, or a direct client's real IP) for
+    // the rate limiter, the failed-auth brute-force damper, and the receiver's
+    // per-source admission. `trustProxy: true` was unsafe: it took request.ip from the
+    // left-most (client-supplied) XFF entry, letting anyone reaching the origin spoof
+    // `X-Forwarded-For: 127.0.0.1` to hit the loopback rate-limit allow-list and rotate
+    // the value to evade the 3-strikes damper. Internal built-in delivery loops back
+    // from 127.0.0.1 with no XFF, so its request.ip stays loopback and stays allow-listed.
+    trustProxy: 'loopback',
     bodyLimit: BODY_LIMIT_BYTES,
   });
 

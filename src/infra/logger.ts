@@ -88,6 +88,26 @@ export function createLogger(
     level: options.level,
     redact: { paths: REDACT_PATHS, censor: REDACT_CENSOR },
     timestamp: pino.stdTimeFunctions.isoTime,
+    // Strip the query string from every logged request URL. The telemetry WebSocket
+    // authenticates via `/ws/telemetry?token=<ADMIN_TOKEN>` (browsers cannot set
+    // WS headers), and Fastify's automatic request logging would otherwise write the
+    // cleartext master token into stdout logs on every connect. Path-based redaction
+    // cannot scrub a substring of a field, so we sanitize the URL in the serializer
+    // instead, keeping the method + path for debugging while dropping any secret query.
+    serializers: {
+      req: pino.stdSerializers.wrapRequestSerializer((serialized) => {
+        const r = serialized as { url?: unknown; query?: unknown };
+        if (typeof r.url === 'string') {
+          const q = r.url.indexOf('?');
+          if (q !== -1) r.url = r.url.slice(0, q);
+        }
+        // pino-std-serializers also emits a PARSED `query` object, so a secret passed as a
+        // query parameter (the WS `?token=`) survives URL stripping there. Drop the field
+        // entirely: the sanitized path is enough for debugging and no query value is logged.
+        if ('query' in r) delete r.query;
+        return serialized;
+      }),
+    },
   };
   if (options.name !== undefined) loggerOptions.name = options.name;
   if (options.base !== undefined) loggerOptions.base = options.base;

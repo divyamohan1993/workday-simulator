@@ -54,6 +54,38 @@ versioning.
   - Ops: multi-stage `Dockerfile`, `docker-compose.yml` (app plus optional NATS), the
     Caddy site snippet, `.env.example`, idempotent `autoconfig.sh`, and `drizzle.config.ts`.
 
+### Fixed
+
+- 2026-07-23 - Dashboard crashed on load. The follow-the-sun strip and the workday clock
+  used `Europe/Frankfurt`, which is not a portable IANA zone (several ICU/Node builds omit
+  the alias), so `Intl.DateTimeFormat` threw `RangeError: Invalid time zone` and white-
+  screened the live dashboard. Both web call sites now use the canonical `Europe/Berlin`,
+  matching the backend engine, which already did.
+- 2026-07-23 - Receiver SCIM path is now tolerant of pre-existing identities. A PATCH/PUT/
+  DELETE for an employee the receiver was never sent a create for (the identity pool is
+  seeded independently of a run, so leaver/mover subjects almost always are) now upserts or
+  no-ops instead of returning 404, matching the already-tolerant ingest path. This removes
+  the spurious ~2% delivery "failures" on the default SCIM demo path and lets pre-seeded
+  identities actually deactivate/provision, so orphan and dormancy accounting sees them.
+
+### Security
+
+- 2026-07-23 - CSP explicitly allows only the Cloudflare Web-Analytics beacon
+  (`static.cloudflareinsights.com` for script, `cloudflareinsights.com` for connect) so the
+  CF-injected script runs on the proxied site without loosening `script-src` to inline.
+- 2026-07-23 - Request logging no longer leaks a query-string secret. The telemetry socket
+  authenticates via `/ws/telemetry?token=<ADMIN_TOKEN>` (browsers cannot set WebSocket
+  headers) and Fastify request logging is on, so the master token was written to stdout on
+  every connect. The logger `req` serializer now strips both the URL query string and the
+  parsed `query` object; regression-guarded by `src/server/request-logging.test.ts`.
+- 2026-07-23 - Origin is never published on `0.0.0.0`. `docker-compose.yml` and
+  `autoconfig.sh` bind the app (and NATS) to `127.0.0.1` only, because Docker's DNAT
+  precedes the host firewall and a public publish would expose the origin off-Cloudflare and
+  off-Caddy. `trustProxy: 'loopback'` derives `request.ip` from the loopback hop's
+  X-Forwarded-For, so a client cannot spoof `X-Forwarded-For: 127.0.0.1` to hit the
+  rate-limit allow-list or evade the failed-auth throttle. Empty-string optional env vars
+  coerce to unset so the documented deploy no longer crash-loops on `RECEIVER_TOKEN=`/`NATS_URL=`.
+
 ### Notes
 
 - TypeScript is pinned to 5.9.x rather than 7.0: the native TypeScript 7 compiler

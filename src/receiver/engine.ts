@@ -261,10 +261,22 @@ export class ReceiverEngine {
     return this.store.listUsers(predicate, startIndex, count);
   }
 
-  /** Replace a user (PUT) and enqueue an update. */
+  /** Replace a user (PUT); upsert an unknown id, then enqueue an update. */
   scimReplaceUser(id: string, body: unknown, key: string): { user: ScimUser; etag: string | undefined } {
     const now = this.now();
-    const user = this.store.replaceUser(id, body, now, this.lastSimMs);
+    let user: ScimUser;
+    if (this.store.hasLiveUser(id)) {
+      user = this.store.replaceUser(id, body, now, this.lastSimMs);
+    } else {
+      // Tolerant upsert: a PUT for a pre-existing employee the receiver was never sent a
+      // create for (the identity pool is seeded independently of this run, so leaver/mover
+      // subjects are almost always ids the receiver has not seen) materializes the account
+      // instead of 404-ing an at-least-once stream. This is ingest-path parity (ensureUser);
+      // createUser honors the client-supplied id so the round-trip id is preserved.
+      const withId =
+        typeof body === 'object' && body !== null ? { ...(body as Record<string, unknown>), id } : body;
+      user = this.store.createUser(withId, now, this.lastSimMs).resource;
+    }
     if (this.seen.add(key)) {
       this.countIngest(now);
       this.submitProvision({ userId: id, operation: 'update', resource: 'identity' }, false);
@@ -275,6 +287,17 @@ export class ReceiverEngine {
   /** PATCH a user; enqueue deactivate/reactivate/update by what changed. */
   scimPatchUser(id: string, patchOp: unknown, key: string): { user: ScimUser; etag: string | undefined } {
     const now = this.now();
+    if (!this.store.hasLiveUser(id)) {
+      // Tolerant: materialize a minimal account so a PATCH for a pre-existing employee
+      // (e.g. a leaver deactivation or a manager-change) lands and is recorded for
+      // orphan/dormancy accounting instead of 404-ing. Ingest-path parity (ensureUser);
+      // userName=id keeps the shell unique until a fuller record arrives.
+      this.store.createUser(
+        { schemas: [SCIM_SCHEMA.USER], id, userName: id, active: true },
+        now,
+        this.lastSimMs,
+      );
+    }
     const { user, activeChanged, active } = this.store.patchUser(id, patchOp, now, this.lastSimMs);
     if (this.seen.add(key)) {
       this.countIngest(now);
@@ -284,10 +307,16 @@ export class ReceiverEngine {
     return { user, etag: this.store.userEtag(id) };
   }
 
-  /** Soft-delete (deprovision) a user and enqueue the downstream removal. */
+  /**
+   * Soft-delete (deprovision) a user and enqueue the downstream removal. Idempotent: a
+   * delete for an id the receiver never materialized succeeds as a no-op (the account
+   * simply does not exist on this target) rather than 404-ing an at-least-once stream.
+   */
   scimDeleteUser(id: string, key: string): void {
     const now = this.now();
-    this.store.deleteUser(id, now);
+    if (this.store.hasLiveUser(id)) {
+      this.store.deleteUser(id, now);
+    }
     if (this.seen.add(key)) {
       this.countIngest(now);
       this.submitProvision({ userId: id, operation: 'delete', resource: 'identity' }, false);

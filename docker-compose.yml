@@ -13,7 +13,14 @@ services:
     image: workday-simulator:latest
     container_name: workday-simulator
     ports:
-      - '8477:8477'
+      # Publish to loopback ONLY: host Caddy (which terminates TLS and adds the
+      # security headers) reaches the app at 127.0.0.1:8477, but the origin is not
+      # exposed on the host's public interface. Docker installs its DNAT rules in the
+      # DOCKER chain ahead of UFW's INPUT chain, so a "0.0.0.0" publish would be
+      # reachable at http://<host-ip>:8477 regardless of any UFW deny rule, bypassing
+      # Cloudflare and Caddy entirely. HOST stays 0.0.0.0 so the bind is correct
+      # inside the container namespace; only the host-side publish is pinned to loopback.
+      - '127.0.0.1:8477:8477'
     environment:
       NODE_ENV: production
       PORT: '8477'
@@ -48,7 +55,9 @@ services:
     command:
       - '-js'
     ports:
-      - '4222:4222'
+      # Loopback only: NATS is an internal transport between the app and this broker;
+      # never expose the client port on the host's public interface.
+      - '127.0.0.1:4222:4222'
     restart: unless-stopped
 
 volumes:

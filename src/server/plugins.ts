@@ -9,10 +9,15 @@
  *   path POSTs from THIS process to 127.0.0.1, so a per-ip cap that counted it would
  *   throttle the very traffic the demo generates. Genuine external abuse is still
  *   capped; the loopback exemption only spares the server talking to itself.
- * - The CSP keeps `script-src 'self'` (the XSS-relevant directive) strict while
- *   allowing inline styles, which chart and animation libraries inject at runtime,
- *   and `connect-src 'self'` so the same-origin telemetry WebSocket connects. No
- *   `upgrade-insecure-requests`, so a plain-http localhost or preview still loads.
+ * - The CSP keeps `script-src` strict (no `'unsafe-inline'`, the XSS-relevant
+ *   directive) while allowing inline styles, which chart and animation libraries
+ *   inject at runtime, and `connect-src 'self'` so the same-origin telemetry
+ *   WebSocket connects. No `upgrade-insecure-requests`, so a plain-http localhost
+ *   or preview still loads.
+ * - Cloudflare injects its Web-Analytics beacon (static.cloudflareinsights.com)
+ *   into proxied responses; the two cloudflareinsights.com origins below are the
+ *   ONLY external hosts allowlisted (script to load the beacon, connect for it to
+ *   report), so the injected script runs without loosening script-src to inline.
  */
 
 import { existsSync } from 'node:fs';
@@ -43,11 +48,11 @@ export async function registerSecurityPlugins(app: FastifyInstance, config: AppC
       useDefaults: true,
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'"],
+        scriptSrc: ["'self'", 'https://static.cloudflareinsights.com'],
         styleSrc: ["'self'", "'unsafe-inline'"],
         imgSrc: ["'self'", 'data:'],
         fontSrc: ["'self'", 'data:'],
-        connectSrc: ["'self'"],
+        connectSrc: ["'self'", 'https://cloudflareinsights.com'],
         objectSrc: ["'none'"],
         baseUri: ["'self'"],
         frameAncestors: ["'self'"],

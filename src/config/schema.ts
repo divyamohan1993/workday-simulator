@@ -14,6 +14,21 @@ import { z } from 'zod';
 
 const LOG_LEVELS = ['fatal', 'error', 'warn', 'info', 'debug', 'trace', 'silent'] as const;
 
+/**
+ * Coerce an empty or whitespace-only string to `undefined` so that an unset
+ * optional env var and one explicitly set to '' behave identically.
+ *
+ * WHY: `.optional()` only accepts `undefined`; an empty string is a PRESENT value
+ * and still runs the inner check, so `RECEIVER_TOKEN=` (min 8) and `NATS_URL=`
+ * (url) would fail validation and crash the process. Both documented deploy paths
+ * emit exactly that empty string: `.env.example` ships `RECEIVER_TOKEN=`/`NATS_URL=`,
+ * and Docker's `--env-file` and compose's `${VAR:-}` both interpolate a bare `KEY=`
+ * to `''` inside the container. Preprocessing '' to undefined makes an empty optional
+ * behave like an unset one, so the happy-path deploy boots instead of crash-looping.
+ */
+const emptyToUndefined = (value: unknown): unknown =>
+  typeof value === 'string' && value.trim() === '' ? undefined : value;
+
 export const configSchema = z.object({
   /** Runtime mode. */
   NODE_ENV: z.enum(['development', 'production', 'test']).default('development'),
@@ -33,9 +48,10 @@ export const configSchema = z.object({
 
   /**
    * Token the built-in receiver requires on its SCIM/ingest endpoints. Optional;
-   * when unset the server reuses ADMIN_TOKEN for the built-in target and receiver.
+   * when unset (or set to an empty string) the server reuses ADMIN_TOKEN for the
+   * built-in target and receiver.
    */
-  RECEIVER_TOKEN: z.string().min(8).optional(),
+  RECEIVER_TOKEN: z.preprocess(emptyToUndefined, z.string().min(8).optional()),
 
   LOG_LEVEL: z.enum(LOG_LEVELS).default('info'),
 
@@ -43,8 +59,8 @@ export const configSchema = z.object({
   DEFAULT_TARGET_KIND: z.enum(['scim', 'webhook', 'rest', 'nats', 'batch']).default('scim'),
 
   /** Optional NATS server URL. When set, the nats delivery kind and NATS ingest
-   *  on the built-in receiver become available. */
-  NATS_URL: z.string().url().optional(),
+   *  on the built-in receiver become available. An empty string counts as unset. */
+  NATS_URL: z.preprocess(emptyToUndefined, z.string().url().optional()),
 
   /** Default simulated seconds per real second (a scenario may override). */
   WORKDAY_ACCEL: z.coerce.number().positive().max(86_400).default(60),

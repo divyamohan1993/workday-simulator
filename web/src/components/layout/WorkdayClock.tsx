@@ -48,7 +48,7 @@ export function WorkdayClock({
   const phase = clock?.phase;
   const phaseColor = phase ? PHASE_COLOR[phase] : 'var(--ink-3)';
   const iso = displayMs !== null ? new Date(displayMs).toISOString() : null;
-  const timeStr = iso ? formatClockTime(iso, 'Europe/Frankfurt') : '--:--:--';
+  const timeStr = iso ? formatClockTime(iso, 'Europe/Berlin') : '--:--:--';
   const accel = clock?.accel ?? accelFallback;
 
   return (

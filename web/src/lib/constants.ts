@@ -30,7 +30,7 @@ export interface LocationMeta {
 }
 
 export const LOCATIONS: Record<LocationCode, LocationMeta> = {
-  FFT: { code: 'FFT', city: 'Frankfurt', country: 'DE', timezone: 'Europe/Frankfurt', nominalOffsetMin: 60, region: 'EMEA' },
+  FFT: { code: 'FFT', city: 'Frankfurt', country: 'DE', timezone: 'Europe/Berlin', nominalOffsetMin: 60, region: 'EMEA' },
   LDN: { code: 'LDN', city: 'London', country: 'GB', timezone: 'Europe/London', nominalOffsetMin: 0, region: 'EMEA' },
   NYC: { code: 'NYC', city: 'New York', country: 'US', timezone: 'America/New_York', nominalOffsetMin: -300, region: 'AMER' },
   JAX: { code: 'JAX', city: 'Jacksonville', country: 'US', timezone: 'America/New_York', nominalOffsetMin: -300, region: 'AMER' },

@@ -2,10 +2,13 @@
 #
 # Import this from your main Caddyfile:  import deploy/caddy/workday.dmj.one.caddy
 #
-# The upstream is the app container on port 8477. When Caddy runs on the host and
-# the app runs in Docker, use host.docker.internal:8477; when both run in the same
-# Docker network, use the service name instead (workday-simulator:8477). Caddy
-# upgrades WebSocket connections (/ws/telemetry) automatically.
+# The upstream is the app on port 8477, published to loopback by docker-compose /
+# autoconfig. When Caddy runs natively on the host (the GCP VM blueprint) and the app
+# runs in Docker, use 127.0.0.1:8477 (the default below); host.docker.internal does
+# NOT resolve for a host-native process on Linux. Only when Caddy is ITSELF
+# containerized on the same Docker network do you switch the upstream to the service
+# name (workday-simulator:8477). Caddy upgrades WebSocket connections (/ws/telemetry)
+# automatically.
 
 workday.dmj.one {
 	encode zstd gzip
@@ -23,7 +26,13 @@ workday.dmj.one {
 		-Server
 	}
 
-	reverse_proxy host.docker.internal:8477 {
+	reverse_proxy 127.0.0.1:8477 {
+		# Overwrite (not append) X-Forwarded-For with Caddy's immediate peer. This is
+		# load-bearing for the origin's trust model: the app trusts only the loopback
+		# hop (trustProxy: 'loopback') and derives request.ip from this header, so it
+		# must carry Caddy's real peer (a Cloudflare edge IP, or a direct client's IP),
+		# never a client-supplied value. A client cannot forge request.ip because Caddy
+		# replaces whatever XFF arrived.
 		header_up X-Real-IP {remote_host}
 		header_up X-Forwarded-For {remote_host}
 		header_up X-Forwarded-Proto {scheme}

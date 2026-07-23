@@ -42,11 +42,15 @@ docker volume inspect "${VOLUME}" >/dev/null 2>&1 || docker volume create "${VOL
 
 log "Replacing container ${NAME} ..."
 docker rm -f "${NAME}" >/dev/null 2>&1 || true
+# Publish to loopback ONLY. Host Caddy reaches the app at 127.0.0.1:${PORT}; the
+# origin is never exposed on the host's public interface. A "0.0.0.0" publish would
+# be reachable at http://<host-ip>:${PORT} directly, bypassing Cloudflare and Caddy,
+# and Docker's DNAT rules sit ahead of UFW so a host firewall alone cannot block it.
 docker run -d \
   --name "${NAME}" \
   --env-file .env \
   -e PORT="${PORT}" \
-  -p "${PORT}:${PORT}" \
+  -p "127.0.0.1:${PORT}:${PORT}" \
   -v "${VOLUME}:/app/data" \
   --restart unless-stopped \
   "${IMAGE}" >/dev/null
