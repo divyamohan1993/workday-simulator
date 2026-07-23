@@ -15,7 +15,7 @@ function BrandMark(): React.JSX.Element {
     <div className="flex items-center gap-2.5">
       <span
         className="grid h-9 w-9 place-items-center rounded-lg font-bold text-white"
-        style={{ background: 'linear-gradient(135deg, var(--db-blue), #0b2a6b)', boxShadow: '0 6px 16px -8px rgba(47,107,214,0.8)' }}
+        style={{ background: 'linear-gradient(135deg, var(--db-navy), var(--db-blue))', boxShadow: '0 6px 16px -8px rgba(5,80,209,0.7)' }}
         aria-hidden="true"
       >
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.4}>

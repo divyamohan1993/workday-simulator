@@ -1,0 +1,550 @@
+- generic [active] [ref=f2e1]:
+  - banner [ref=f2e2]:
+    - generic [ref=f2e3]:
+      - button "Skip to main content" [ref=f2e4] [cursor=pointer]
+      - link [ref=f2e5] [cursor=pointer]:
+        - /url: /
+        - img "Deutsche Bank" [ref=f2e6]
+      - navigation "meta" [ref=f2e7]:
+        - list [ref=f2e8]:
+          - listitem [ref=f2e9]:
+            - link "Media" [ref=f2e10] [cursor=pointer]:
+              - /url: https://www.db.com/media/index?language_id=1
+          - listitem [ref=f2e11]:
+            - link "Careers" [ref=f2e12] [cursor=pointer]:
+              - /url: https://www.db.com/careers
+          - listitem [ref=f2e13]:
+            - link "Investor Relations" [ref=f2e14] [cursor=pointer]:
+              - /url: https://www.db.com/ir
+          - listitem [ref=f2e15]:
+            - link "Research" [ref=f2e16] [cursor=pointer]:
+              - /url: https://www.dbresearch.com/
+          - listitem [ref=f2e17]:
+            - link "Responsibility" [ref=f2e18] [cursor=pointer]:
+              - /url: https://www.db.com/what-we-do/responsibility/index?language_id=1
+          - listitem [ref=f2e19]:
+            - link "Contact" [ref=f2e20] [cursor=pointer]:
+              - /url: https://www.db.com/contact?language_id=1
+      - link "Home" [ref=f2e21] [cursor=pointer]:
+        - /url: https://www.db.com/
+      - button "Skip main navigation" [ref=f2e24] [cursor=pointer]
+  - navigation "null" [ref=f2e25]:
+    - list [ref=f2e27]:
+      - listitem [ref=f2e28]:
+        - link "Deutsche Bank" [ref=f2e29] [cursor=pointer]:
+          - /url: /index?language_id=1
+      - listitem [ref=f2e30]:
+        - link "Corporates/Institutions" [ref=f2e31] [cursor=pointer]:
+          - /url: https://corporates.db.com/index?language_id=1
+      - listitem [ref=f2e32]:
+        - link "Private Clients" [ref=f2e33] [cursor=pointer]:
+          - /url: https://www.db.com/what-we-do/products-and-services/private-bank?language_id=1
+      - listitem [ref=f2e34]:
+        - link "Locations" [ref=f2e35] [cursor=pointer]:
+          - /url: https://country.db.com/index?language_id=1&kid=locations.ghp-en.cross-navi
+      - listitem [ref=f2e36]:
+        - link "Client logins" [ref=f2e37] [cursor=pointer]:
+          - /url: https://www.db.com/what-we-do/products-and-services/client-logins?language_id=1
+  - navigation "main" [ref=f2e38]:
+    - list [ref=f2e40]:
+      - listitem [ref=f2e41]:
+        - link "Home" [ref=f2e42] [cursor=pointer]:
+          - /url: /index?language_id=1
+      - listitem [ref=f2e45]:
+        - link "What we do" [ref=f2e46] [cursor=pointer]:
+          - /url: /what-we-do
+      - listitem [ref=f2e47]:
+        - link "Who we are" [ref=f2e48] [cursor=pointer]:
+          - /url: /who-we-are
+      - listitem [ref=f2e49]:
+        - link "Media" [ref=f2e50] [cursor=pointer]:
+          - /url: /media
+      - listitem [ref=f2e51]:
+        - link "What Next" [ref=f2e52] [cursor=pointer]:
+          - /url: /what-next
+  - main [ref=f2e53]:
+    - generic [ref=f2e59]:
+      - list [ref=f2e60]:
+        - listitem "“Adapting to longer lives is as crucial as adapting to AI or climate change”" [ref=f2e61] [cursor=pointer]:
+          - figure [ref=f2e63]:
+            - img "Andrew Scott - London Business School" [ref=f2e64]
+          - generic [ref=f2e66]:
+            - heading "What Next | Shaping Transition" [level=3] [ref=f2e67]
+            - heading "“Adapting to longer lives is as crucial as adapting to AI or climate change”" [level=2] [ref=f2e68]
+            - link "“Adapting to longer lives is as crucial as adapting to AI or climate change” Why longer lives change everything" [ref=f2e70]:
+              - /url: https://www.db.com/what-next/entrepreneurial-success/ageing/andrew-scott/index?language_id=1&kid=wn.stageGHP.andrew-scott.en
+              - generic [ref=f2e71]: “Adapting to longer lives is as crucial as adapting to AI or climate change”
+              - text: Why longer lives change everything
+        - 'listitem "From family roots to global beauty business: Davines Group puts regeneration first" [ref=f2e72] [cursor=pointer]':
+          - figure [ref=f2e74]:
+            - img "Tonisha Robinson" [ref=f2e75]
+          - generic [ref=f2e77]:
+            - heading "What Next | European Success Stories" [level=3] [ref=f2e78]
+            - 'heading "From family roots to global beauty business: Davines Group puts regeneration first" [level=2] [ref=f2e79]'
+            - 'link "From family roots to global beauty business: Davines Group puts regeneration first Follow your nose" [ref=f2e81]':
+              - /url: https://www.db.com/what-next/european-success-stories/transition-stories/davines-group-regenerative-beauty/index?language_id=1
+              - generic [ref=f2e82]: "From family roots to global beauty business: Davines Group puts regeneration first"
+              - text: Follow your nose
+        - listitem "What if ageing is actually a growth story?" [ref=f2e83] [cursor=pointer]:
+          - figure [ref=f2e85]:
+            - img "Pedro Ros, founder of SilverEconomy.com, on the economic potential of longevity" [ref=f2e86]
+          - generic [ref=f2e88]:
+            - heading "What Next | Entrepreneurial Success" [level=3] [ref=f2e89]
+            - heading "What if ageing is actually a growth story?" [level=2] [ref=f2e90]
+            - link "What if ageing is actually a growth story? Discover the Silver Economy" [ref=f2e92]:
+              - /url: https://www.db.com/what-next/entrepreneurial-success/ageing/silver-economy-longevity-growth/index?language_id=1
+              - generic [ref=f2e93]: What if ageing is actually a growth story?
+              - text: Discover the Silver Economy
+        - 'listitem "Risk and vision: investments in tech pioneers" [ref=f2e94] [cursor=pointer]':
+          - figure [ref=f2e96]:
+            - img "Solar Impulse tech pioneers" [ref=f2e97]
+          - generic [ref=f2e99]:
+            - heading "What Next | Digital Disruption" [level=3] [ref=f2e100]
+            - 'heading "Risk and vision: investments in tech pioneers" [level=2] [ref=f2e101]'
+            - 'link "Risk and vision: investments in tech pioneers Making innovations viable" [ref=f2e103]':
+              - /url: https://www.db.com/what-next/digital-disruption/space-economy/tech-pioneers/index?language_id=1&kid=wn.stageGHP.pioneers.en
+              - generic [ref=f2e104]: "Risk and vision: investments in tech pioneers"
+              - text: Making innovations viable
+      - generic:
+        - button "previous slide item" [ref=f2e105]
+        - button "next slide item" [ref=f2e108] [cursor=pointer]
+        - button "Start autoplay for content" [ref=f2e111] [cursor=pointer]
+    - generic [ref=f2e116]:
+      - heading "Welcome to Deutsche Bank" [level=1] [ref=f2e119]
+      - paragraph [ref=f2e126]:
+        - text: Your
+        - link "Global Hausbank" [ref=f2e127] [cursor=pointer]:
+          - /url: https://www.db.com/who-we-are/strategy/index?language_id=1
+        - text: on the path to becoming the European Champion.
+    - generic [ref=f2e131]:
+      - heading "News" [level=2] [ref=f2e133]
+      - generic [ref=f2e137]:
+        - generic [ref=f2e139]:
+          - generic:
+            - link "Five themes the Deutsche Bank Research Institute is tracking through the rest of 2026":
+              - /url: //www.db.com/news/detail/20260813-five-themes-the-deutsche-bank-research-institute-is-tracking-through-the-rest-of-2026?language_id=1
+              - figure:
+                - progressbar "Loading..." [ref=f2e140] [cursor=pointer]
+                - img "Five themes the Deutsche Bank Research Institute is tracking through the rest of 2026"
+          - generic [ref=f2e141]:
+            - generic [ref=f2e142]:
+              - list [ref=f2e143]:
+                - listitem "News" [ref=f2e144]: News |
+              - time [ref=f2e145]: July 21, 2026
+            - link [ref=f2e147] [cursor=pointer]:
+              - /url: //www.db.com/news/detail/20260813-five-themes-the-deutsche-bank-research-institute-is-tracking-through-the-rest-of-2026?language_id=1
+              - heading "Five themes the Deutsche Bank Research Institute is tracking through the rest of 2026" [level=3] [ref=f2e148]
+        - generic [ref=f2e150]:
+          - generic:
+            - link "Deutsche Bank secures “World’s Best for Research” and Fifth Consecutive “Germany’s Best Investment Bank”":
+              - /url: //www.db.com/news/detail/20260717-deutsche-bank-secures-world-s-best-for-research-and-fifth-consecutive-germany-s-best-investment-bank?language_id=1
+              - figure:
+                - progressbar "Loading..." [ref=f2e151] [cursor=pointer]
+                - img "Deutsche Bank secures “World’s Best for Research” and Fifth Consecutive “Germany’s Best Investment Bank”"
+          - generic [ref=f2e152]:
+            - generic [ref=f2e153]:
+              - list [ref=f2e154]:
+                - listitem "News" [ref=f2e155]: News |
+              - time [ref=f2e156]: July 17, 2026
+            - link [ref=f2e158] [cursor=pointer]:
+              - /url: //www.db.com/news/detail/20260717-deutsche-bank-secures-world-s-best-for-research-and-fifth-consecutive-germany-s-best-investment-bank?language_id=1
+              - heading "Deutsche Bank secures “World’s Best for Research” and Fifth Consecutive “Germany’s Best Investment Bank”" [level=3] [ref=f2e159]
+        - generic [ref=f2e161]:
+          - generic:
+            - link "How AI is reshaping the software behind everyday banking":
+              - /url: //www.db.com/news/detail/20260714-how-ai-is-reshaping-the-software-behind-everyday-banking?language_id=1
+              - figure:
+                - progressbar "Loading..." [ref=f2e162] [cursor=pointer]
+                - img "How AI is reshaping the software behind everyday banking"
+          - generic [ref=f2e163]:
+            - generic [ref=f2e164]:
+              - list [ref=f2e165]:
+                - listitem "Blog" [ref=f2e166]: Blog |
+              - time [ref=f2e167]: July 14, 2026
+            - link [ref=f2e169] [cursor=pointer]:
+              - /url: //www.db.com/news/detail/20260714-how-ai-is-reshaping-the-software-behind-everyday-banking?language_id=1
+              - heading "How AI is reshaping the software behind everyday banking" [level=3] [ref=f2e170]
+        - generic [ref=f2e172]:
+          - generic:
+            - link "Why German issuers are turning to China’s panda bond market in 2026":
+              - /url: //www.db.com/news/detail/20260710-why-german-issuers-are-turning-to-china-s-panda-bond-market-in-2026?language_id=1
+              - figure:
+                - progressbar "Loading..." [ref=f2e173] [cursor=pointer]
+                - img "Why German issuers are turning to China’s panda bond market in 2026"
+          - generic [ref=f2e174]:
+            - generic [ref=f2e175]:
+              - list [ref=f2e176]:
+                - listitem "News" [ref=f2e177]: News |
+              - time [ref=f2e178]: July 10, 2026
+            - link [ref=f2e180] [cursor=pointer]:
+              - /url: //www.db.com/news/detail/20260710-why-german-issuers-are-turning-to-china-s-panda-bond-market-in-2026?language_id=1
+              - heading "Why German issuers are turning to China’s panda bond market in 2026" [level=3] [ref=f2e181]
+    - generic [ref=f2e185]:
+      - heading "Thought leadership" [level=2] [ref=f2e187]
+      - generic [ref=f2e190]:
+        - generic [ref=f2e191]:
+          - article [ref=f2e192]:
+            - generic [ref=f2e193]:
+              - generic:
+                - 'link "Redaptive: meeting corporate demand in an energy-hungry era"':
+                  - /url: https://flow.db.com/case-studies/redaptive-meeting-corporate-demand-in-an-energy-hungry-era
+                  - figure:
+                    - progressbar "Loading..." [ref=f2e194] [cursor=pointer]
+                    - 'img "Redaptive: meeting corporate demand in an energy-hungry era"'
+              - generic [ref=f2e195]:
+                - generic [ref=f2e196]:
+                  - list [ref=f2e197]:
+                    - listitem "<em>flow</em> article" [ref=f2e198]:
+                      - emphasis [ref=f2e199]: flow
+                      - text: article |
+                  - time [ref=f2e200]: July 10, 2026
+                - generic [ref=f2e201]:
+                  - heading [level=3] [ref=f2e202]:
+                    - 'link "Redaptive: meeting corporate demand in an energy-hungry era" [ref=f2e203] [cursor=pointer]':
+                      - /url: https://flow.db.com/case-studies/redaptive-meeting-corporate-demand-in-an-energy-hungry-era
+                  - link [ref=f2e204] [cursor=pointer]:
+                    - /url: https://flow.db.com/case-studies/redaptive-meeting-corporate-demand-in-an-energy-hungry-era
+                    - text: Could the Energy-as-a Service industry represent the future of energy supply for large companies?
+                    - emphasis [ref=f2e205]: flow’s
+                    - text: Will Monroe scopes out US-based Redaptive’s business model and the innovative financing solutions that have helped the company to scale
+          - article [ref=f2e206]:
+            - generic [ref=f2e207]:
+              - generic:
+                - link "“Adapting to longer lives is as crucial as adapting to AI or climate change”":
+                  - /url: https://www.db.com/what-next/entrepreneurial-success/ageing/andrew-scott/index?language_id=1&kid=wn.stageGHP.andrew-scott.en
+                  - figure:
+                    - progressbar "Loading..." [ref=f2e208] [cursor=pointer]
+                    - img "“Adapting to longer lives is as crucial as adapting to AI or climate change”"
+              - generic [ref=f2e209]:
+                - generic [ref=f2e210]:
+                  - list [ref=f2e211]:
+                    - listitem "News" [ref=f2e212]: News |
+                    - listitem "What Next" [ref=f2e213]: What Next |
+                  - time [ref=f2e214]: July 7, 2026
+                - generic [ref=f2e215]:
+                  - heading [level=3] [ref=f2e216]:
+                    - link "“Adapting to longer lives is as crucial as adapting to AI or climate change”" [ref=f2e217] [cursor=pointer]:
+                      - /url: https://www.db.com/what-next/entrepreneurial-success/ageing/andrew-scott/index?language_id=1&kid=wn.stageGHP.andrew-scott.en
+                  - link "Longer lives are reshaping economies and careers. Andrew J. Scott explains why the longevity revolution is just getting started." [ref=f2e218] [cursor=pointer]:
+                    - /url: https://www.db.com/what-next/entrepreneurial-success/ageing/andrew-scott/index?language_id=1&kid=wn.stageGHP.andrew-scott.en
+          - article [ref=f2e220]:
+            - generic [ref=f2e221]:
+              - generic:
+                - link "Inside PayPal’s treasury transformation":
+                  - /url: https://flow.db.com/case-studies/inside-paypal-s-treasury-transformation
+                  - figure:
+                    - progressbar "Loading..." [ref=f2e222] [cursor=pointer]
+                    - img "Inside PayPal’s treasury transformation"
+              - generic [ref=f2e223]:
+                - generic [ref=f2e224]:
+                  - list [ref=f2e225]:
+                    - listitem "<em>flow</em> article" [ref=f2e226]:
+                      - emphasis [ref=f2e227]: flow
+                      - text: article |
+                  - time [ref=f2e228]: June 30, 2026
+                - generic [ref=f2e229]:
+                  - heading [level=3] [ref=f2e230]:
+                    - link "Inside PayPal’s treasury transformation" [ref=f2e231] [cursor=pointer]:
+                      - /url: https://flow.db.com/case-studies/inside-paypal-s-treasury-transformation
+                  - link [ref=f2e232] [cursor=pointer]:
+                    - /url: https://flow.db.com/case-studies/inside-paypal-s-treasury-transformation
+                    - text: Moving money is in PayPal’s DNA – which presents specific challenges for the treasury department. PayPal’s Group Treasurer Can Balcioglu tells
+                    - emphasis [ref=f2e233]: flow’s
+                    - text: Desirée Buchholz how his team modernised treasury infrastructure, applied AI and explored stablecoins
+          - article [ref=f2e234]:
+            - generic [ref=f2e235]:
+              - generic:
+                - link "Meeting the Middle East’s taste for British cheese – opens in new window":
+                  - /url: https://flow.db.com/Topics/trade-finance/meeting-the-middle-east-s-taste-for-british-cheese
+                  - figure:
+                    - progressbar "Loading..." [ref=f2e236] [cursor=pointer]
+                    - img "Meeting the Middle East’s taste for British cheese"
+              - generic [ref=f2e237]:
+                - generic [ref=f2e238]:
+                  - list [ref=f2e239]:
+                    - listitem "<em>flow</em> article" [ref=f2e240]:
+                      - emphasis [ref=f2e241]: flow
+                      - text: article |
+                  - time [ref=f2e242]: June 24, 2026
+                - generic [ref=f2e243]:
+                  - heading [level=3] [ref=f2e244]:
+                    - link "Meeting the Middle East’s taste for British cheese" [ref=f2e245] [cursor=pointer]:
+                      - /url: https://flow.db.com/Topics/trade-finance/meeting-the-middle-east-s-taste-for-british-cheese
+                  - link "With the UK-Gulf Cooperation Council (GCC) free trade agreement signed, British exporters have a fresh route into fast-growing Middle East markets. But what support can its exporters call upon for those products that have a long gestation period? flow’s Clarissa Dann finds out at GTR UK 2026" [ref=f2e246] [cursor=pointer]:
+                    - /url: https://flow.db.com/Topics/trade-finance/meeting-the-middle-east-s-taste-for-british-cheese
+          - article [ref=f2e247]:
+            - generic [ref=f2e248]:
+              - generic:
+                - 'link "Macro outlook: when AI meets geopolitics"':
+                  - /url: https://flow.db.com/topics/macro-and-markets/macro-outlook-when-ai-meets-geopolitics
+                  - figure:
+                    - progressbar "Loading..." [ref=f2e249] [cursor=pointer]
+                    - 'img "Macro outlook: when AI meets geopolitics"'
+              - generic [ref=f2e250]:
+                - generic [ref=f2e251]:
+                  - list [ref=f2e252]:
+                    - listitem "<em>flow</em> article" [ref=f2e253]:
+                      - emphasis [ref=f2e254]: flow
+                      - text: article |
+                  - time [ref=f2e255]: June 24, 2026
+                - generic [ref=f2e256]:
+                  - heading [level=3] [ref=f2e257]:
+                    - 'link "Macro outlook: when AI meets geopolitics" [ref=f2e258] [cursor=pointer]':
+                      - /url: https://flow.db.com/topics/macro-and-markets/macro-outlook-when-ai-meets-geopolitics
+                  - link [ref=f2e259] [cursor=pointer]:
+                    - /url: https://flow.db.com/topics/macro-and-markets/macro-outlook-when-ai-meets-geopolitics
+                    - text: Artificial intelligence (AI) and the fallout from the Middle East conflict are the two forces currently defining the global economy. Drawing on Deutsche Bank Research’s mid-year outlook,
+                    - emphasis [ref=f2e260]: flow
+                    - text: reports on how this is impacting GDP growth in different regions
+          - article [ref=f2e261]:
+            - generic [ref=f2e262]:
+              - generic:
+                - link "Project Agorá and cross-border payments":
+                  - /url: https://flow.db.com/Topics/cash-management/project-agora-and-cross-border-payments
+                  - figure:
+                    - progressbar "Loading..." [ref=f2e263] [cursor=pointer]
+                    - img "Project Agorá and cross-border payments"
+              - generic [ref=f2e264]:
+                - generic [ref=f2e265]:
+                  - list [ref=f2e266]:
+                    - listitem "<em>flow</em> article" [ref=f2e267]:
+                      - emphasis [ref=f2e268]: flow
+                      - text: article |
+                  - time [ref=f2e269]: June 24, 2026
+                - generic [ref=f2e270]:
+                  - heading [level=3] [ref=f2e271]:
+                    - link "Project Agorá and cross-border payments" [ref=f2e272] [cursor=pointer]:
+                      - /url: https://flow.db.com/Topics/cash-management/project-agora-and-cross-border-payments
+                  - link [ref=f2e273] [cursor=pointer]:
+                    - /url: https://flow.db.com/Topics/cash-management/project-agora-and-cross-border-payments
+                    - text: Can tokenisation unlock the next chapter of correspondent banking? With Project Agorá, the Bank for International Settlements, seven central banks and more than 40 financial institutions are putting that question to the test.
+                    - emphasis [ref=f2e274]: flow
+                    - text: reports on the progress — and the road ahead
+          - article [ref=f2e275]:
+            - generic [ref=f2e276]:
+              - generic:
+                - 'link "Tech in corporate treasury: AI is not the whole story"':
+                  - /url: https://flow.db.com/Topics/cash-management/tech-in-corporate-treasury-ai-is-not-the-whole-story
+                  - figure:
+                    - progressbar "Loading..." [ref=f2e277] [cursor=pointer]
+                    - 'img "Tech in corporate treasury: AI is not the whole story"'
+              - generic [ref=f2e278]:
+                - generic [ref=f2e279]:
+                  - list [ref=f2e280]:
+                    - listitem "<em>flow</em> article" [ref=f2e281]:
+                      - emphasis [ref=f2e282]: flow
+                      - text: article |
+                  - time [ref=f2e283]: June 24, 2026
+                - generic [ref=f2e284]:
+                  - heading [level=3] [ref=f2e285]:
+                    - 'link "Tech in corporate treasury: AI is not the whole story" [ref=f2e286] [cursor=pointer]':
+                      - /url: https://flow.db.com/Topics/cash-management/tech-in-corporate-treasury-ai-is-not-the-whole-story
+                  - link "Across key treasury functions, artificial intelligence is moving from experimentation to active deployment. Drawing on his latest treasury survey, Dr Tobias Miarka of Crisil Coalition Greenwich explains where AI is adding most value – and why some companies are focusing on the wrong priorities" [ref=f2e287] [cursor=pointer]:
+                    - /url: https://flow.db.com/Topics/cash-management/tech-in-corporate-treasury-ai-is-not-the-whole-story
+          - article [ref=f2e289]:
+            - generic [ref=f2e290]:
+              - generic:
+                - 'link "From family roots to global beauty business: Davines Group puts regeneration first"':
+                  - /url: https://www.db.com/what-next/european-success-stories/transition-stories/davines-group-regenerative-beauty/index?language_id=1
+                  - figure:
+                    - progressbar "Loading..." [ref=f2e291] [cursor=pointer]
+                    - 'img "From family roots to global beauty business: Davines Group puts regeneration first"'
+              - generic [ref=f2e292]:
+                - generic [ref=f2e293]:
+                  - list [ref=f2e294]:
+                    - listitem "News" [ref=f2e295]: News |
+                    - listitem "What Next" [ref=f2e296]: What Next |
+                  - time [ref=f2e297]: June 23, 2026
+                - generic [ref=f2e298]:
+                  - heading [level=3] [ref=f2e299]:
+                    - 'link "From family roots to global beauty business: Davines Group puts regeneration first" [ref=f2e300] [cursor=pointer]':
+                      - /url: https://www.db.com/what-next/european-success-stories/transition-stories/davines-group-regenerative-beauty/index?language_id=1
+                  - link "The Italian group combines growth with environmental responsibility — supported by a decades-long partnership with Deutsche Bank." [ref=f2e301] [cursor=pointer]:
+                    - /url: https://www.db.com/what-next/european-success-stories/transition-stories/davines-group-regenerative-beauty/index?language_id=1
+          - article [ref=f2e303]:
+            - generic [ref=f2e304]:
+              - generic:
+                - link "What if ageing is actually a growth story?":
+                  - /url: https://www.db.com/what-next/entrepreneurial-success/ageing/silver-economy-longevity-growth/index?language_id=1
+                  - figure:
+                    - progressbar "Loading..." [ref=f2e305] [cursor=pointer]
+                    - img "What if ageing is actually a growth story?"
+              - generic [ref=f2e306]:
+                - generic [ref=f2e307]:
+                  - list [ref=f2e308]:
+                    - listitem "News" [ref=f2e309]: News |
+                    - listitem "What Next" [ref=f2e310]: What Next |
+                  - time [ref=f2e311]: June 18, 2026
+                - generic [ref=f2e312]:
+                  - heading [level=3] [ref=f2e313]:
+                    - link "What if ageing is actually a growth story?" [ref=f2e314] [cursor=pointer]:
+                      - /url: https://www.db.com/what-next/entrepreneurial-success/ageing/silver-economy-longevity-growth/index?language_id=1
+                  - link "Anyone who sees ageing only as a cost factor is missing one of the biggest markets of the future. Pedro Ros explains why the Silver Economy is booming – and why businesses can no longer afford to underestimate it." [ref=f2e315] [cursor=pointer]:
+                    - /url: https://www.db.com/what-next/entrepreneurial-success/ageing/silver-economy-longevity-growth/index?language_id=1
+        - button "Load More" [ref=f2e318] [cursor=pointer]
+    - generic [ref=f2e322]:
+      - heading "Corporate essentials" [level=2] [ref=f2e324]
+      - generic [ref=f2e325]:
+        - list [ref=f2e327]:
+          - listitem [ref=f2e328]:
+            - generic [ref=f2e330]:
+              - figure [ref=f2e332]:
+                - img "Jürgen Schmitt in a blue hoodie, holding a magnifying glass." [ref=f2e333]
+              - generic [ref=f2e335]:
+                - heading "#ExpeditionFinance" [level=2] [ref=f2e336]
+                - paragraph [ref=f2e338]:
+                  - text: In these videos, Jürgen Schmitt explores the
+                  - link "latest trends and technologies" [ref=f2e339] [cursor=pointer]:
+                    - /url: https://corporates.db.com/multimedia/expeditionfinance/?language_id=1
+                  - text: .
+          - listitem [ref=f2e340]:
+            - generic [ref=f2e342]:
+              - figure [ref=f2e344]:
+                - img "Professionals-reading-flow-magazine-on-a-train.jpg" [ref=f2e345]
+              - generic [ref=f2e347]:
+                - heading "flow" [level=2] [ref=f2e348]
+                - paragraph [ref=f2e350]:
+                  - link "Thought leadership platform" [ref=f2e351] [cursor=pointer]:
+                    - /url: https://www.db.com/flow
+                  - text: for corporate clients.
+          - listitem [ref=f2e352]:
+            - generic [ref=f2e354]:
+              - figure [ref=f2e356]:
+                - img "dbSustainability – Deutsche Bank Research" [ref=f2e357]
+              - generic [ref=f2e359]:
+                - heading "dbSustainability" [level=2] [ref=f2e360]
+                - paragraph [ref=f2e362]:
+                  - text: Supporting clients with
+                  - link "ESG integration into investment processes" [ref=f2e363] [cursor=pointer]:
+                    - /url: https://www.dbresearch.com/dbsustainability
+                  - text: .
+          - listitem [ref=f2e364]:
+            - generic [ref=f2e366]:
+              - figure [ref=f2e368]:
+                - img "Deutsche Bank Headquarters" [ref=f2e369]
+              - generic [ref=f2e371]:
+                - heading "Scaling the Global Hausbank" [level=2] [ref=f2e372]
+                - paragraph [ref=f2e374]:
+                  - text: New strategic phase of
+                  - link "growth and value creation" [ref=f2e375] [cursor=pointer]:
+                    - /url: https://www.db.com/who-we-are/strategy/index?language_id=1
+                  - text: .
+          - listitem [ref=f2e376]:
+            - generic [ref=f2e378]:
+              - figure [ref=f2e380]:
+                - img "Deutsche Bank Headquarters lobby (detail)" [ref=f2e381]
+              - generic [ref=f2e383]:
+                - heading "Code of Conduct" [level=2] [ref=f2e384]
+                - paragraph [ref=f2e386]:
+                  - text: Deutsche Bank's standards of
+                  - link "behaviour and conduct" [ref=f2e387] [cursor=pointer]:
+                    - /url: https://www.db.com/Code-of-Conduct
+                  - text: .
+          - listitem [ref=f2e388]:
+            - generic [ref=f2e390]:
+              - figure [ref=f2e392]:
+                - img "Climate statement – approaches to fighting climate change" [ref=f2e393]
+              - generic [ref=f2e395]:
+                - heading "Sustainable & Transition Finance" [level=2] [ref=f2e396]
+                - paragraph [ref=f2e398]:
+                  - text: €900 bn target to support
+                  - link "low-carbon transition and ecosystem conservation" [ref=f2e399] [cursor=pointer]:
+                    - /url: https://www.db.com/what-we-do/responsibility/sustainability/sustainable-finance?language_id=1
+                  - text: .
+        - button "next slide item" [ref=f2e400] [cursor=pointer]
+    - generic [ref=f2e407]:
+      - 'link "Share price (EUR) 31.23 0.16 EUR Intraday (Xetra, Jul 22, 21:05) Relative Change: 0.5% High: 31.41 EUR Low: 30.82 EUR" [ref=f2e409] [cursor=pointer]':
+        - /url: https://www.db.com/shareprice
+        - heading "Share price (EUR)" [level=2] [ref=f2e410]
+        - generic [ref=f2e411]:
+          - generic [ref=f2e412]: "31.23"
+          - generic [ref=f2e413]:
+            - generic [ref=f2e414]: "0.16"
+            - generic [ref=f2e415]: EUR
+        - generic [ref=f2e416]:
+          - generic [ref=f2e417]:
+            - text: Intraday
+            - generic [ref=f2e418]: (Xetra, Jul 22, 21:05)
+          - generic [ref=f2e419]: "Relative Change: 0.5%"
+          - generic [ref=f2e420]: "High: 31.41 EUR"
+          - generic [ref=f2e421]: "Low: 30.82 EUR"
+      - generic [ref=f2e425]:
+        - heading "Graduate? Professional?" [level=2] [ref=f2e426]
+        - generic [ref=f2e427]:
+          - paragraph [ref=f2e428]: The world is changing, and so are we. This is more than banking.
+          - paragraph [ref=f2e429]:
+            - link "Opportunities for agile minds start here" [ref=f2e430] [cursor=pointer]:
+              - /url: https://careers.db.com/index?language_id=1
+      - generic [ref=f2e434]:
+        - heading "Financial releases, reports and calendar" [level=2] [ref=f2e435]
+        - paragraph [ref=f2e437]:
+          - text: Consult our
+          - link "financial reporting and events" [ref=f2e438] [cursor=pointer]:
+            - /url: https://investor-relations.db.com/reports-and-events/
+          - text: or read our
+          - link "creditor information" [ref=f2e439] [cursor=pointer]:
+            - /url: https://investor-relations.db.com/creditors/creditor-information/
+    - generic [ref=f2e443]:
+      - heading "Social Media" [level=2] [ref=f2e445]
+      - generic [ref=f2e446]:
+        - generic [ref=f2e450]:
+          - heading "LinkedIn" [level=2] [ref=f2e451]
+          - paragraph [ref=f2e453]:
+            - link "LinkedIn channel" [ref=f2e454] [cursor=pointer]:
+              - /url: https://www.linkedin.com/company/deutsche-bank/posts
+        - generic [ref=f2e458]:
+          - heading "Instagram" [level=2] [ref=f2e459]
+          - paragraph [ref=f2e461]:
+            - link "Instagram channel" [ref=f2e462] [cursor=pointer]:
+              - /url: https://www.instagram.com/DeutscheBank
+        - generic [ref=f2e466]:
+          - heading "TikTok" [level=2] [ref=f2e467]
+          - paragraph [ref=f2e469]:
+            - link "TikTok channel" [ref=f2e470] [cursor=pointer]:
+              - /url: https://www.tiktok.com/@deutschebank
+        - generic [ref=f2e474]:
+          - heading "Facebook" [level=2] [ref=f2e475]
+          - paragraph [ref=f2e477]:
+            - link "Facebook channel" [ref=f2e478] [cursor=pointer]:
+              - /url: https://www.facebook.com/DeutscheBank
+  - contentinfo [ref=f2e480]:
+    - generic [ref=f2e482]:
+      - navigation "footer" [ref=f2e484]:
+        - list:
+          - listitem [ref=f2e485]:
+            - link "Imprint" [ref=f2e486] [cursor=pointer]:
+              - /url: https://www.db.com/imprint?language_id=1
+          - listitem [ref=f2e487]:
+            - link "Legal resources" [ref=f2e488] [cursor=pointer]:
+              - /url: https://www.db.com/legal-resources/index?language_id=1
+          - listitem [ref=f2e489]:
+            - link "Privacy Notice" [ref=f2e490] [cursor=pointer]:
+              - /url: https://www.db.com/legal-resources/privacy-notice?language_id=1
+          - listitem [ref=f2e491]:
+            - link "Accessibility" [ref=f2e492] [cursor=pointer]:
+              - /url: https://www.db.com/accessibility?language_id=1
+          - listitem [ref=f2e493]:
+            - link "Sitemap" [ref=f2e494] [cursor=pointer]:
+              - /url: https://www.db.com/sitemap?language_id=1
+          - listitem [ref=f2e495]:
+            - link "Contact" [ref=f2e496] [cursor=pointer]:
+              - /url: https://www.db.com/contact?language_id=1
+      - button "back to top" [ref=f2e497] [cursor=pointer]
+      - paragraph [ref=f2e499]: Copyright © 2026 Deutsche Bank AG, Frankfurt am Main
+  - navigation "Toolbox" [ref=f2e500]:
+    - list [ref=f2e501]:
+      - listitem [ref=f2e502]:
+        - link "DE" [ref=f2e503] [cursor=pointer]:
+          - /url: /index?language_id=3
+      - listitem [ref=f2e505]:
+        - link "Accessibility" [ref=f2e506] [cursor=pointer]:
+          - /url: javascript:EyeAbleAPI.toggleToolbar()
+      - listitem [ref=f2e509]:
+        - link "Sitemap" [ref=f2e510] [cursor=pointer]:
+          - /url: /sitemap
+      - listitem [ref=f2e513]:
+        - link "Contact" [ref=f2e514] [cursor=pointer]:
+          - /url: /contact
+      - listitem [ref=f2e517]:
+        - link "Share" [ref=f2e518] [cursor=pointer]:
+          - /url: "#"

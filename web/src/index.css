@@ -4,74 +4,80 @@
 
 /*
  * ============================================================================
- * Workday Simulator - "Bank Operations Control Room" design system
+ * Workday Simulator - Deutsche Bank operations identity
  * ============================================================================
- * A single, deliberate dark identity: a financial NOC / trading-floor terminal.
- * The look is precise, not playful. Depth comes from layered navy surfaces,
- * hairline borders and a thin status accent on every panel; the data is the
- * only thing allowed to be loud.
+ * A single, deliberate LIGHT identity derived from Deutsche Bank's own brand
+ * (researched from db.com): a calm, precise, corporate-German-bank surface,
+ * white cards on a cool light-grey plane, DB navy for structure and headings,
+ * DB blue for every interactive element, a teal and a magenta as the only
+ * accents. Generous whitespace, hairline navy-tinted borders, and Helvetica-
+ * family type (DB's own house style) carry the trust the audience needs; the
+ * data is the only thing allowed to be loud.
  *
- * Chart series colors live in `lib/palette.ts` (JS needs the hex values for
- * recharts). The UI-chrome tokens below mirror the same validated palette so
- * the two never drift. All values were checked with the dataviz validator
- * against the panel surface for CVD safety and >= 3:1 contrast.
+ * Palette provenance (db.com computed styles): navy #1E2A78, ink #16184E,
+ * action blue #0550D1, slate text #425563, section grey #F7F7F7, teal #3BB8B8,
+ * magenta #D4005C. Chart series colours live in `lib/palette.ts` (recharts needs
+ * hex); the UI-chrome tokens below mirror them, all checked for >= 4.5:1 text /
+ * >= 3:1 graphical contrast on the white panel surface, and CVD-safe as a set.
  */
 
 @layer base {
   :root {
-    color-scheme: dark;
+    color-scheme: light;
 
-    /* Surfaces: page plane -> panel -> raised inset -> hover */
-    --surface-0: #05070f;
-    --surface-1: #0b1020;
-    --surface-2: #10162e;
-    --surface-3: #161f3c;
-    --surface-scrim: rgba(3, 5, 12, 0.72);
+    /* Surfaces: cool light plane -> white panel -> subtle raised -> inset/hover */
+    --surface-0: #eef1f7;
+    --surface-1: #ffffff;
+    --surface-2: #f5f7fb;
+    --surface-3: #e9edf5;
+    --surface-scrim: rgba(22, 24, 78, 0.42);
 
-    /* Hairlines */
-    --border: rgba(148, 163, 210, 0.14);
-    --border-strong: rgba(148, 163, 210, 0.26);
-    --border-faint: rgba(148, 163, 210, 0.08);
+    /* Hairlines (navy-tinted, so borders read as brand, not grey noise) */
+    --border: rgba(30, 42, 120, 0.16);
+    --border-strong: rgba(30, 42, 120, 0.32);
+    --border-faint: rgba(30, 42, 120, 0.08);
 
-    /* Ink */
-    --ink: #eef2fb;
-    --ink-2: #aab4cf;
-    --ink-3: #6b7796;
-    --ink-inverse: #05070f;
+    /* Ink: DB ink-navy heading -> slate body -> muted label -> inverse */
+    --ink: #16184e;
+    --ink-2: #425563;
+    --ink-3: #5b6570;
+    --ink-inverse: #ffffff;
 
-    /* Brand + accents */
-    --db-blue: #2f6bd6;
-    --accent: #3b82f6;
-    --accent-cyan: #22d3ee;
-    --accent-glow: rgba(34, 211, 238, 0.35);
+    /* Brand + accents (Deutsche Bank) */
+    --db-blue: #0550d1;
+    --db-navy: #1e2a78;
+    --db-ink: #16184e;
+    --accent: #0550d1;
+    --accent-cyan: #0f8a8a; /* DB teal, deepened for on-white legibility */
+    --accent-glow: rgba(5, 80, 209, 0.18);
 
-    /* Validated categorical series (dark surface) */
-    --cat-auth: #3987e5;
-    --cat-jml: #d95926;
-    --cat-access: #199e70;
-    --cat-txn: #c98500;
-    --cat-compliance: #d55181;
+    /* Validated categorical series (WHITE surface), assigned to event categories */
+    --cat-auth: #0b57c2;
+    --cat-jml: #c2410c;
+    --cat-access: #0f766e;
+    --cat-txn: #9a6a00;
+    --cat-compliance: #be185d;
 
-    /* Status (fixed, never themed) */
-    --status-good: #0ca30c;
-    --status-warning: #fab219;
-    --status-serious: #ec835a;
-    --status-critical: #d03b3b;
+    /* Status (fixed semantics, tuned for a light surface) */
+    --status-good: #0f7d33;
+    --status-warning: #b7791f;
+    --status-serious: #c2410c;
+    --status-critical: #c8102e;
 
     /* Chart chrome */
-    --grid: rgba(148, 163, 210, 0.09);
-    --axis: #6b7796;
-    --baseline: rgba(148, 163, 210, 0.2);
+    --grid: rgba(30, 42, 120, 0.08);
+    --axis: #5b6570;
+    --baseline: rgba(30, 42, 120, 0.18);
 
-    /* Geometry + motion */
-    --radius: 14px;
-    --radius-sm: 9px;
-    --radius-lg: 20px;
-    --shadow-panel: 0 1px 0 rgba(255, 255, 255, 0.03) inset,
-      0 18px 40px -24px rgba(0, 0, 0, 0.9);
-    --shadow-pop: 0 24px 60px -20px rgba(0, 0, 0, 0.85);
+    /* Geometry + motion (DB is crisp and rectangular; keep radii restrained) */
+    --radius: 12px;
+    --radius-sm: 8px;
+    --radius-lg: 16px;
+    --shadow-panel: 0 1px 2px rgba(22, 24, 78, 0.06),
+      0 10px 28px -18px rgba(22, 24, 78, 0.28);
+    --shadow-pop: 0 24px 60px -22px rgba(22, 24, 78, 0.35);
     --ease: cubic-bezier(0.22, 1, 0.36, 1);
-    --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'Menlo', monospace;
+    --font-mono: ui-monospace, 'SFMono-Regular', 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
   }
 
   * {
@@ -87,19 +93,20 @@
   body {
     margin: 0;
     background:
-      radial-gradient(1100px 620px at 82% -8%, rgba(34, 211, 238, 0.08), transparent 60%),
-      radial-gradient(1200px 800px at 8% -12%, rgba(47, 107, 214, 0.14), transparent 55%),
-      var(--surface-0);
+      radial-gradient(1200px 460px at 50% -12%, rgba(30, 42, 120, 0.07), transparent 62%),
+      linear-gradient(180deg, #f7f8fc 0%, var(--surface-0) 100%);
+    background-attachment: fixed;
     color: var(--ink);
-    font-family: Inter, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    /* Deutsche Bank's own house family is Helvetica/Arial; the system faces render
+       the authentic corporate-Swiss look with zero webfont cost. */
+    font-family: 'Helvetica Neue', Helvetica, Arial, 'Segoe UI', Roboto, system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    /* No body scroll in the app (the shell's <main> owns scrolling), but the
-       auth gate and splash are free to scroll on short viewports. */
     overflow-x: hidden;
   }
 
-  /* A faint terminal grid, fixed behind everything. Purely decorative. */
+  /* A whisper-faint navy structure grid, fixed behind everything. Purely
+     decorative and barely there, so the surface stays clean and corporate. */
   body::before {
     content: '';
     position: fixed;
@@ -108,40 +115,40 @@
     background-image:
       linear-gradient(var(--border-faint) 1px, transparent 1px),
       linear-gradient(90deg, var(--border-faint) 1px, transparent 1px);
-    background-size: 48px 48px;
-    mask-image: radial-gradient(circle at 50% 0%, black, transparent 78%);
-    opacity: 0.5;
+    background-size: 56px 56px;
+    mask-image: radial-gradient(circle at 50% 0%, black, transparent 72%);
+    opacity: 0.35;
     z-index: 0;
   }
 
   ::selection {
-    background: rgba(34, 211, 238, 0.28);
-    color: #fff;
+    background: rgba(5, 80, 209, 0.18);
+    color: var(--db-ink);
   }
 
   :focus-visible {
-    outline: 2px solid var(--accent-cyan);
+    outline: 2px solid var(--db-blue);
     outline-offset: 2px;
     border-radius: 6px;
   }
 
-  /* Scrollbars tuned for the dark terminal */
+  /* Scrollbars tuned for the light surface */
   * {
     scrollbar-width: thin;
-    scrollbar-color: rgba(148, 163, 210, 0.28) transparent;
+    scrollbar-color: rgba(30, 42, 120, 0.28) transparent;
   }
   *::-webkit-scrollbar {
     width: 10px;
     height: 10px;
   }
   *::-webkit-scrollbar-thumb {
-    background: rgba(148, 163, 210, 0.22);
+    background: rgba(30, 42, 120, 0.22);
     border-radius: 999px;
     border: 2px solid transparent;
     background-clip: content-box;
   }
   *::-webkit-scrollbar-thumb:hover {
-    background: rgba(148, 163, 210, 0.4);
+    background: rgba(30, 42, 120, 0.4);
     background-clip: content-box;
   }
 
@@ -150,8 +157,9 @@
   h3,
   h4 {
     margin: 0;
-    font-weight: 650;
+    font-weight: 700;
     letter-spacing: -0.01em;
+    color: var(--db-ink);
   }
 
   .tnum {
@@ -166,7 +174,7 @@
   /* --- Panels -------------------------------------------------------------- */
   .panel {
     position: relative;
-    background: linear-gradient(180deg, var(--surface-1), var(--surface-0));
+    background: var(--surface-1);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     box-shadow: var(--shadow-panel);
@@ -184,19 +192,19 @@
     align-items: center;
     gap: 0.55rem;
     font-size: 0.72rem;
-    font-weight: 650;
+    font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--ink-2);
+    color: var(--db-navy);
   }
-  /* Thin status accent that rides the top edge of a panel */
+  /* Thin brand accent that rides the top edge of a panel (DB navy -> blue) */
   .panel-accent::after {
     content: '';
     position: absolute;
     inset: 0 0 auto 0;
     height: 2px;
     border-radius: var(--radius) var(--radius) 0 0;
-    background: linear-gradient(90deg, var(--accent), var(--accent-cyan));
+    background: linear-gradient(90deg, var(--db-navy), var(--db-blue));
     opacity: 0.9;
   }
 
@@ -208,11 +216,11 @@
     gap: 0.45rem;
     padding: 0.5rem 0.9rem;
     border-radius: var(--radius-sm);
-    border: 1px solid var(--border);
-    background: var(--surface-2);
-    color: var(--ink);
+    border: 1px solid var(--border-strong);
+    background: var(--surface-1);
+    color: var(--db-ink);
     font-size: 0.82rem;
-    font-weight: 550;
+    font-weight: 600;
     line-height: 1;
     cursor: pointer;
     transition:
@@ -223,8 +231,8 @@
     white-space: nowrap;
   }
   .btn:hover:not(:disabled) {
-    background: var(--surface-3);
-    border-color: var(--border-strong);
+    background: var(--surface-2);
+    border-color: var(--db-navy);
   }
   .btn:active:not(:disabled) {
     transform: translateY(1px);
@@ -234,22 +242,22 @@
     cursor: not-allowed;
   }
   .btn-primary {
-    background: linear-gradient(180deg, var(--accent), #2563eb);
+    background: var(--db-blue);
     border-color: transparent;
     color: #fff;
-    box-shadow: 0 8px 22px -12px rgba(59, 130, 246, 0.9);
+    box-shadow: 0 8px 20px -12px rgba(5, 80, 209, 0.85);
   }
   .btn-primary:hover:not(:disabled) {
-    background: linear-gradient(180deg, #4d90ff, var(--accent));
+    background: #0746b4;
     border-color: transparent;
   }
   .btn-danger {
-    background: color-mix(in srgb, var(--status-critical) 22%, var(--surface-2));
+    background: color-mix(in srgb, var(--status-critical) 10%, var(--surface-1));
     border-color: color-mix(in srgb, var(--status-critical) 45%, transparent);
-    color: #ffd7d3;
+    color: var(--status-critical);
   }
   .btn-danger:hover:not(:disabled) {
-    background: color-mix(in srgb, var(--status-critical) 32%, var(--surface-2));
+    background: color-mix(in srgb, var(--status-critical) 18%, var(--surface-1));
   }
   .btn-ghost {
     background: transparent;
@@ -273,7 +281,7 @@
   .field-label {
     display: block;
     font-size: 0.72rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--ink-3);
@@ -285,8 +293,8 @@
     width: 100%;
     padding: 0.55rem 0.7rem;
     border-radius: var(--radius-sm);
-    border: 1px solid var(--border);
-    background: var(--surface-0);
+    border: 1px solid var(--border-strong);
+    background: var(--surface-1);
     color: var(--ink);
     font-size: 0.85rem;
     font-family: inherit;
@@ -302,8 +310,8 @@
   .select:focus,
   .textarea:focus {
     outline: none;
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.22);
+    border-color: var(--db-blue);
+    box-shadow: 0 0 0 3px rgba(5, 80, 209, 0.18);
   }
   .input-mono {
     font-family: var(--font-mono);
@@ -311,7 +319,7 @@
   }
   .select {
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7796' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235b6570' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 0.6rem center;
     padding-right: 2rem;
@@ -333,17 +341,17 @@
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: var(--accent-cyan);
-    border: 2px solid var(--surface-0);
-    box-shadow: 0 0 0 1px var(--accent-cyan), 0 0 12px var(--accent-glow);
+    background: var(--db-blue);
+    border: 2px solid var(--surface-1);
+    box-shadow: 0 0 0 1px var(--db-blue), 0 2px 8px rgba(5, 80, 209, 0.4);
     cursor: pointer;
   }
   .range::-moz-range-thumb {
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: var(--accent-cyan);
-    border: 2px solid var(--surface-0);
+    background: var(--db-blue);
+    border: 2px solid var(--surface-1);
     cursor: pointer;
   }
 
@@ -356,7 +364,7 @@
     border-radius: 999px;
     border: 1px solid var(--border);
     font-size: 0.68rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.04em;
     line-height: 1.4;
     white-space: nowrap;
@@ -383,7 +391,7 @@
     border-radius: var(--radius-sm);
     color: var(--ink-2);
     font-size: 0.85rem;
-    font-weight: 550;
+    font-weight: 600;
     border: 1px solid transparent;
     cursor: pointer;
     transition: background 0.15s var(--ease), color 0.15s var(--ease);
@@ -391,15 +399,16 @@
   }
   .nav-item:hover {
     background: var(--surface-2);
-    color: var(--ink);
+    color: var(--db-ink);
   }
   .nav-item[aria-current='page'] {
-    background: linear-gradient(90deg, rgba(59, 130, 246, 0.18), rgba(34, 211, 238, 0.06));
-    border-color: var(--border);
-    color: #fff;
+    background: rgba(5, 80, 209, 0.09);
+    border-color: color-mix(in srgb, var(--db-blue) 28%, transparent);
+    color: var(--db-navy);
+    box-shadow: inset 3px 0 0 var(--db-blue);
   }
   .nav-item[aria-current='page'] .nav-ic {
-    color: var(--accent-cyan);
+    color: var(--db-blue);
   }
 
   /* --- Stat tile ----------------------------------------------------------- */
@@ -411,17 +420,18 @@
   }
   .stat-label {
     font-size: 0.68rem;
-    font-weight: 600;
+    font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--ink-3);
   }
   .stat-value {
     font-size: 1.65rem;
-    font-weight: 680;
+    font-weight: 750;
     line-height: 1.1;
     margin-top: 0.25rem;
     letter-spacing: -0.02em;
+    color: var(--db-ink);
   }
 
   /* --- Live signal --------------------------------------------------------- */
@@ -471,8 +481,8 @@
 
 @layer utilities {
   .glass {
-    background: color-mix(in srgb, var(--surface-1) 82%, transparent);
-    backdrop-filter: blur(14px) saturate(1.2);
+    background: color-mix(in srgb, var(--surface-1) 86%, transparent);
+    backdrop-filter: blur(14px) saturate(1.1);
   }
   .above {
     position: relative;
