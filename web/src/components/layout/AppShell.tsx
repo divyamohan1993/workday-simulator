@@ -33,7 +33,7 @@ export function AppShell({ children }: { children: ReactNode }): React.JSX.Eleme
         </aside>
 
         <main className="min-w-0 flex-1 overflow-y-auto" id="main-content" tabIndex={-1}>
-          <div className="mx-auto max-w-[1600px] p-3 sm:p-4 lg:p-6">{children}</div>
+          <div className="mx-auto max-w-[2400px] p-3 sm:p-4 lg:p-6 2xl:p-8">{children}</div>
         </main>
       </div>
 

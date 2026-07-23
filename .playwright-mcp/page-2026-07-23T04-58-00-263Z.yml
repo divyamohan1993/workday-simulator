@@ -1,0 +1,6 @@
+- generic [active] [ref=f4e1]:
+  - generic [ref=f4e2]:
+    - link "Skip to content" [ref=f4e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - paragraph [ref=f4e10]: Restoring session…
+  - region "Notifications"
