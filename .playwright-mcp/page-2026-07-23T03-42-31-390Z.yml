@@ -1,0 +1,24 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - link "Skip to content" [ref=e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - paragraph [ref=e7]: Deutsche Bank
+        - heading "Workday Simulator" [level=1] [ref=e8]
+        - paragraph [ref=e9]: Workforce & identity traffic generator · Bank Operations Control Room
+      - form [ref=e10]:
+        - generic [ref=e16]:
+          - heading "Admin access" [level=2] [ref=e17]
+          - paragraph [ref=e18]: Enter the ADMIN_TOKEN to continue
+        - generic [ref=e19]: Admin token
+        - generic [ref=e20]:
+          - textbox "Admin token" [active] [ref=e21]:
+            - /placeholder: paste token
+          - button "Show token" [ref=e22] [cursor=pointer]
+        - button "Enter control room" [ref=e26] [cursor=pointer]
+        - paragraph [ref=e29]:
+          - text: The token is held in this tab's session only and cleared on close. It is set via the
+          - generic [ref=e32]: ADMIN_TOKEN
+          - text: server variable.
+  - region "Notifications"

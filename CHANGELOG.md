@@ -8,6 +8,25 @@ versioning.
 
 ### Added
 
+- 2026-07-23 - Organic threat scheduler for natural, full-spectrum bank-day traffic.
+  - `src/engine/threat-scheduler.ts`: spawns the existing chaos injectors as coordinated
+    INCIDENTS on a Poisson schedule in simulated time, randomized kind (attack classes
+    weighted over operational shocks and nudged toward the quiet hours), intensity and
+    timing, capped at a concurrency limit so a day never becomes a wall of attacks. Nine
+    unit tests cover determinism, per-run variation, the Poisson band, the concurrency
+    cap, kind-weight exclusion and intensity range.
+  - `ScenarioConfig.threatProfile` (optional) with a zod schema and route threading; the
+    runtime forks the scheduler PRNG off `${seed}:${runId}` so the workforce and arrival
+    stay reproducible for a seed while the incident timeline differs on every run. Per-
+    frame `activeChaos` is capped and a live-injector prune bounds an open-ended run.
+  - The seeded default scenario is now `Deutsche Bank - Natural Workday`: threat profile
+    on, bounded to one accelerated 24-hour day (so it plays the full diurnal arc and then
+    completes), baseline 40 rps (normal-to-heavy, not a stress test), delivering to the
+    built-in OneIM receiver. Verified in production: a run wove credential-stuffing,
+    insider, ransomware, audit-surge, mass-reset, payroll and connector-outage incidents
+    into legitimate traffic across 44 event kinds with 0 delivery failures, and delivered
+    cleanly to an EXTERNAL SCIM target over public HTTPS.
+
 - 2026-07-22 - Reference OneIM receiver, HTTP/WS server, infrastructure, and dashboard;
   full integration verified green.
   - `src/infra/**`: better-sqlite3 + Drizzle stores (runs, scenarios, targets) with soft

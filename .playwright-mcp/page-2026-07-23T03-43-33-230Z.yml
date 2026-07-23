@@ -1,0 +1,693 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - link "Skip to content" [ref=e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - generic [ref=e33]:
+      - banner [ref=e34]:
+        - generic [ref=e40]:
+          - paragraph [ref=e41]: Workday Simulator
+          - paragraph [ref=e42]: Bank Ops Control Room
+        - generic [ref=e45]:
+          - generic [ref=e46]:
+            - generic [ref=e47]:
+              - generic [ref=e48]: 07:03:30
+              - generic [ref=e49]: FFT
+            - generic [ref=e50]:
+              - generic [ref=e52]: Pre market
+              - generic [ref=e53]: · Thu
+          - generic "Simulated seconds per real second" [ref=e54]: 60× accel
+        - 'list "Follow the sun: local time and activity by site" [ref=e56]':
+          - listitem "New York · 01:03 local · 9% activity" [ref=e1275]:
+            - generic [ref=e58]:
+              - generic [ref=e59]: ○
+              - text: NYC
+            - generic [ref=e60]: 01:03
+          - listitem "Jacksonville · 01:03 local · 9% activity" [ref=e1276]:
+            - generic [ref=e62]:
+              - generic [ref=e63]: ○
+              - text: JAX
+            - generic [ref=e64]: 01:03
+          - listitem "London · 06:03 local · 45% activity" [ref=e1277]:
+            - generic [ref=e66]:
+              - generic [ref=e67]: ●
+              - text: LDN
+            - generic [ref=e68]: 06:03
+          - listitem "Frankfurt · 07:03 local · 56% activity" [ref=e1278]:
+            - generic [ref=e70]:
+              - generic [ref=e71]: ●
+              - text: FFT
+            - generic [ref=e72]: 07:03
+          - listitem "Bengaluru · 10:33 local · 91% activity" [ref=e1279]:
+            - generic [ref=e74]:
+              - generic [ref=e75]: ●
+              - text: BLR
+            - generic [ref=e76]: 10:33
+          - listitem "Pune · 10:33 local · 91% activity" [ref=e1280]:
+            - generic [ref=e78]:
+              - generic [ref=e79]: ●
+              - text: PNQ
+            - generic [ref=e80]: 10:33
+          - listitem "Hong Kong · 13:03 local · 100% activity" [ref=e1281]:
+            - generic [ref=e82]:
+              - generic [ref=e83]: ●
+              - text: HKG
+            - generic [ref=e84]: 13:03
+          - listitem "Singapore · 13:03 local · 100% activity" [ref=e1282]:
+            - generic [ref=e86]:
+              - generic [ref=e87]: ●
+              - text: SIN
+            - generic [ref=e88]: 13:03
+        - generic [ref=e89]:
+          - button "Running · 18.4 rps" [ref=e1283] [cursor=pointer]
+          - status "Telemetry stream Live" [ref=e92]:
+            - text: Live
+            - generic [ref=e94]: · 0s
+          - button "Sign out" [ref=e96] [cursor=pointer]
+      - generic [ref=e101]:
+        - complementary [ref=e102]:
+          - navigation "Primary" [ref=e103]:
+            - button "Live Ops Accelerated workday, live telemetry" [ref=e104] [cursor=pointer]:
+              - generic [ref=e107]:
+                - generic [ref=e108]: Live Ops
+                - generic [ref=e109]: Accelerated workday, live telemetry
+            - button "Scenario Builder Compose load, chaos, start a run" [ref=e110] [cursor=pointer]:
+              - generic [ref=e112]:
+                - generic [ref=e113]: Scenario Builder
+                - generic [ref=e114]: Compose load, chaos, start a run
+            - button "Targets Delivery destinations & auth" [ref=e115] [cursor=pointer]:
+              - generic [ref=e120]:
+                - generic [ref=e121]: Targets
+                - generic [ref=e122]: Delivery destinations & auth
+            - button "Run History Past runs & summaries" [ref=e123] [cursor=pointer]:
+              - generic [ref=e128]:
+                - generic [ref=e129]: Run History
+                - generic [ref=e130]: Past runs & summaries
+          - generic [ref=e131]:
+            - paragraph [ref=e132]: Reference OneIM
+            - paragraph [ref=e135]: A built-in receiver ships with the simulator, so runs are demonstrable end-to-end with no external Identity Manager.
+        - main [ref=e136]:
+          - generic [ref=e138]:
+            - status [ref=e141]:
+              - generic [ref=e142]: Chaos active
+              - list [ref=e145]:
+                - listitem "Started 1m ago, ends 19s ago" [ref=e1284]:
+                  - generic [ref=e147]: Ransomware lateral
+                  - generic [ref=e148]: 74% · 1,321 injected
+                - listitem "Started 1m ago, ends 47s ago" [ref=e1285]:
+                  - generic [ref=e150]: Payroll batch
+                  - generic [ref=e151]: 41% · 454 injected
+                - listitem "Started 40s ago, ends just now" [ref=e1286]:
+                  - generic [ref=e153]: Connector outage
+                  - generic [ref=e154]: 58% · 598 injected
+            - generic [ref=e155]:
+              - region "Current throughput" [ref=e156]:
+                - generic [ref=e157]:
+                  - generic [ref=e158]:
+                    - paragraph [ref=e159]: Current throughput
+                    - paragraph [ref=e160]:
+                      - generic [ref=e161]: "18.4"
+                      - generic [ref=e162]: events / sec
+                  - generic [ref=e163]: Running
+                - generic [ref=e165]:
+                  - generic [ref=e166]:
+                    - generic [ref=e167]: vs target
+                    - generic [ref=e168]: 18.4 / 17.4 rps
+                  - meter "vs target" [ref=e169]
+              - generic [ref=e171]:
+                - generic [ref=e172]:
+                  - generic [ref=e173]: Generated
+                  - generic [ref=e177]: 6,225
+                  - generic [ref=e178]: events this run
+                - generic [ref=e179]:
+                  - generic [ref=e180]: Delivered
+                  - generic [ref=e184]: 6,225
+                - generic [ref=e185]:
+                  - generic [ref=e186]: Failed
+                  - generic [ref=e191]: "0"
+                - generic [ref=e192]:
+                  - generic [ref=e193]: Dropped
+                  - generic [ref=e197]: "0"
+                - generic [ref=e198]:
+                  - generic [ref=e199]: Error rate
+                  - generic [ref=e203]: 0.00%
+                - generic [ref=e204]:
+                  - generic [ref=e205]: Circuit
+                  - generic [ref=e209]: Closed
+            - generic [ref=e210]:
+              - region "Throughput · latency · errors" [ref=e212]:
+                - generic [ref=e219]:
+                  - figure [ref=e220]:
+                    - generic [ref=e221]:
+                      - generic [ref=e222]: Throughput (RPS)
+                      - list [ref=e227]:
+                        - listitem [ref=e228]: Current
+                        - listitem [ref=e230]: Target
+                    - img "Throughput (RPS). Current 18.4 requests per second against a target of 17.4." [ref=e1287]:
+                      - application [ref=e235]:
+                        - generic [ref=e249]:
+                          - generic [ref=e250]:
+                            - generic [ref=e1294]: 09:13:02
+                            - generic [ref=e1296]: 09:13:16
+                            - generic [ref=e1298]: 09:13:33
+                          - generic [ref=e257]:
+                            - generic [ref=e258]: "0.0"
+                            - generic [ref=e1300]: "25.0"
+                            - generic [ref=e1302]: "50.0"
+                            - generic [ref=e1304]: "75.0"
+                            - generic [ref=e1306]: "100"
+                  - figure [ref=e268]:
+                    - generic [ref=e269]:
+                      - generic [ref=e270]: Delivery latency
+                      - list [ref=e274]:
+                        - listitem [ref=e275]: p50
+                        - listitem [ref=e277]: p95
+                        - listitem [ref=e279]: p99
+                    - img "Delivery latency. p50 0 ms, p95 27 ms, p99 41 ms." [ref=e1308]:
+                      - application [ref=e284]:
+                        - generic [ref=e289]:
+                          - generic [ref=e290]:
+                            - generic [ref=e1315]: 09:13:02
+                            - generic [ref=e1317]: 09:13:16
+                            - generic [ref=e1319]: 09:13:33
+                          - generic [ref=e297]:
+                            - generic [ref=e298]: 0 ms
+                            - generic [ref=e300]: 20 ms
+                            - generic [ref=e302]: 40 ms
+                            - generic [ref=e304]: 60 ms
+                            - generic [ref=e306]: 80 ms
+                  - figure [ref=e308]:
+                    - generic [ref=e309]:
+                      - generic [ref=e310]: Delivery error rate
+                      - list [ref=e314]:
+                        - listitem [ref=e315]: Errors
+                        - listitem [ref=e317]: 1% threshold
+                    - img "Delivery error rate. Error rate 0.00 percent; alert threshold 1 percent." [ref=e319]:
+                      - application [ref=e322]:
+                        - generic [ref=e326]:
+                          - generic [ref=e327]:
+                            - generic [ref=e1321]: 09:13:02
+                            - generic [ref=e1323]: 09:13:16
+                            - generic [ref=e1325]: 09:13:33
+                          - generic [ref=e334]:
+                            - generic [ref=e335]: 0%
+                            - generic [ref=e337]: 1%
+                            - generic [ref=e339]: 2%
+                            - generic [ref=e341]: 3%
+                            - generic [ref=e343]: 4%
+                  - figure [ref=e345]:
+                    - 'img "Event mix. 6,225 events: Authentication 53%, Joiner / Mover / Leaver 1%, Access governance 24%, Banking transactions 18%, Compliance & risk 3%" [ref=e1327]':
+                      - generic [ref=e354]:
+                        - generic [ref=e355]:
+                          - application [ref=e358]
+                          - generic:
+                            - generic: 6,225
+                            - generic: events
+                        - list [ref=e377]:
+                          - listitem [ref=e378]:
+                            - generic [ref=e379]: Authentication
+                            - generic [ref=e382]:
+                              - generic [ref=e383]: 3,313
+                              - generic [ref=e384]: 53%
+                          - listitem [ref=e385]:
+                            - generic [ref=e386]: Joiner / Mover / Leaver
+                            - generic [ref=e389]:
+                              - generic [ref=e390]: "54"
+                              - generic [ref=e391]: 1%
+                          - listitem [ref=e392]:
+                            - generic [ref=e393]: Access governance
+                            - generic [ref=e396]:
+                              - generic [ref=e397]: 1,503
+                              - generic [ref=e398]: 24%
+                          - listitem [ref=e399]:
+                            - generic [ref=e400]: Banking transactions
+                            - generic [ref=e403]:
+                              - generic [ref=e404]: 1,144
+                              - generic [ref=e405]: 18%
+                          - listitem [ref=e406]:
+                            - generic [ref=e407]: Compliance & risk
+                            - generic [ref=e410]:
+                              - generic [ref=e411]: "211"
+                              - generic [ref=e412]: 3%
+                    - group [ref=e413]:
+                      - generic "Data table" [ref=e414] [cursor=pointer]
+              - generic "Live event stream" [ref=e416]:
+                - generic [ref=e417]:
+                  - generic [ref=e418]: Live event stream
+                  - generic [ref=e420]: 60 recent
+                - log "Recent simulated events" [ref=e421]:
+                  - list [ref=e422]:
+                    - listitem [ref=e1344]:
+                      - generic [ref=e1346]: Txn
+                      - generic [ref=e1347]:
+                        - text: Card Txn
+                        - generic [ref=e1348]:
+                          - text: Isabel Crist
+                          - generic [ref=e1349]: · user
+                      - generic [ref=e1350]: PNQ
+                      - generic "2026-07-23T05:03:02.716Z" [ref=e1351]: 09:13:33
+                    - listitem [ref=e1352]:
+                      - generic [ref=e1354]: Auth
+                      - generic [ref=e1355]:
+                        - text: Session start
+                        - generic [ref=e1356]:
+                          - text: Gilberto Harris
+                          - generic [ref=e1357]: · user
+                      - generic [ref=e1358]: NYC
+                      - generic "2026-07-23T05:03:01.216Z" [ref=e1359]: 09:13:33
+                    - listitem [ref=e1360]:
+                      - generic [ref=e1362]: Auth
+                      - generic [ref=e1363]:
+                        - text: MFA success
+                        - generic [ref=e1364]:
+                          - text: Devan Sporer
+                          - generic [ref=e1365]: · user
+                      - generic [ref=e1366]: BLR
+                      - generic "2026-07-23T05:02:59.716Z" [ref=e1367]: 09:13:32
+                    - listitem [ref=e1368]:
+                      - generic [ref=e1370]: Auth
+                      - generic [ref=e1371]:
+                        - text: Session start
+                        - generic [ref=e1372]:
+                          - text: Lenore Hettinger
+                          - generic [ref=e1373]: · user
+                      - generic [ref=e1374]: SIN
+                      - generic "2026-07-23T05:02:56.716Z" [ref=e1375]: 09:13:32
+                    - listitem [ref=e1376]:
+                      - generic [ref=e1378]: Auth
+                      - generic [ref=e1379]:
+                        - text: Login success
+                        - generic [ref=e1380]:
+                          - text: Lenore Hettinger
+                          - generic [ref=e1381]: · user
+                      - generic [ref=e1382]: SIN
+                      - generic "2026-07-23T05:02:56.716Z" [ref=e1383]: 09:13:32
+                    - listitem [ref=e1384]:
+                      - generic [ref=e1386]: Auth
+                      - generic [ref=e1387]:
+                        - text: SSO federation
+                        - generic [ref=e1388]:
+                          - text: Jorge Sporer
+                          - generic [ref=e1389]: · user
+                      - generic [ref=e1390]: BLR
+                      - generic "2026-07-23T05:02:53.656Z" [ref=e1391]: 09:13:32
+                    - listitem [ref=e1392]:
+                      - generic [ref=e1394]: Txn
+                      - generic [ref=e1395]:
+                        - text: Payment SEPA
+                        - generic [ref=e1396]:
+                          - text: Ward Ruecker
+                          - generic [ref=e1397]: · user
+                      - generic [ref=e1398]: JAX
+                      - generic "2026-07-23T05:02:40.156Z" [ref=e1399]: 09:13:32
+                    - listitem [ref=e1400]:
+                      - generic [ref=e1402]: Auth
+                      - generic [ref=e1403]:
+                        - text: Session start
+                        - generic [ref=e1404]:
+                          - text: Céline Größ
+                          - generic [ref=e1405]: · user
+                      - generic [ref=e1406]: SIN
+                      - generic "2026-07-23T05:02:37.156Z" [ref=e1407]: 09:13:32
+                    - listitem [ref=e1408]:
+                      - generic [ref=e1410]: Auth
+                      - generic [ref=e1411]:
+                        - text: MFA success
+                        - generic [ref=e1412]:
+                          - text: Céline Größ
+                          - generic [ref=e1413]: · user
+                      - generic [ref=e1414]: SIN
+                      - generic "2026-07-23T05:02:37.156Z" [ref=e1415]: 09:13:32
+                    - listitem [ref=e1416]:
+                      - generic [ref=e1418]: Auth
+                      - generic [ref=e1419]:
+                        - text: MFA challenge
+                        - generic [ref=e1420]:
+                          - text: Céline Größ
+                          - generic [ref=e1421]: · user
+                      - generic [ref=e1422]: SIN
+                      - generic "2026-07-23T05:02:37.156Z" [ref=e1423]: 09:13:32
+                    - listitem [ref=e1424]:
+                      - generic [ref=e1426]: Auth
+                      - generic [ref=e1427]:
+                        - text: Login success
+                        - generic [ref=e1428]:
+                          - text: Céline Größ
+                          - generic [ref=e1429]: · user
+                      - generic [ref=e1430]: SIN
+                      - generic "2026-07-23T05:02:37.156Z" [ref=e1431]: 09:13:32
+                    - listitem [ref=e1432]:
+                      - generic [ref=e1434]: Txn
+                      - generic [ref=e1435]:
+                        - text: Trade book
+                        - generic [ref=e1436]:
+                          - text: Dominick Torphy-Schmitt
+                          - generic [ref=e1437]: · user
+                      - generic [ref=e1438]: NYC
+                      - generic "2026-07-23T05:02:35.656Z" [ref=e1439]: 09:13:32
+                    - listitem [ref=e1440]:
+                      - generic [ref=e1442]: Auth
+                      - generic [ref=e1443]:
+                        - text: Login success
+                        - generic [ref=e1444]:
+                          - text: Sinéad Lindqvist
+                          - generic [ref=e1445]: · user
+                      - generic [ref=e1446]: BLR
+                      - generic "2026-07-23T05:02:32.716Z" [ref=e1447]: 09:13:32
+                    - listitem [ref=e1448]:
+                      - generic [ref=e1450]: Access
+                      - generic [ref=e1451]:
+                        - text: Access provision
+                        - generic [ref=e1452]:
+                          - text: provisioning-engine
+                          - generic [ref=e1453]: · system
+                          - generic [ref=e1454]: → Spencer Larkin-Pouros
+                      - generic [ref=e1455]: LDN
+                      - generic "2026-07-23T05:02:26.656Z" [ref=e1456]: 09:13:32
+                    - listitem [ref=e1457]:
+                      - generic [ref=e1459]: Access
+                      - generic [ref=e1460]:
+                        - text: Access provision
+                        - generic [ref=e1461]:
+                          - text: provisioning-engine
+                          - generic [ref=e1462]: · system
+                          - generic [ref=e1463]: → Spencer Larkin-Pouros
+                      - generic [ref=e1464]: LDN
+                      - generic "2026-07-23T05:02:26.656Z" [ref=e1465]: 09:13:32
+                    - listitem [ref=e1466]:
+                      - generic [ref=e1468]: Access
+                      - generic [ref=e1469]:
+                        - text: Access provision
+                        - generic [ref=e1470]:
+                          - text: provisioning-engine
+                          - generic [ref=e1471]: · system
+                          - generic [ref=e1472]: → Spencer Larkin-Pouros
+                      - generic [ref=e1473]: LDN
+                      - generic "2026-07-23T05:02:26.656Z" [ref=e1474]: 09:13:32
+                    - listitem [ref=e1475]:
+                      - generic [ref=e1477]: Access
+                      - generic [ref=e1478]:
+                        - text: Access provision
+                        - generic [ref=e1479]:
+                          - text: provisioning-engine
+                          - generic [ref=e1480]: · system
+                          - generic [ref=e1481]: → Spencer Larkin-Pouros
+                      - generic [ref=e1482]: LDN
+                      - generic "2026-07-23T05:02:26.656Z" [ref=e1483]: 09:13:32
+                    - listitem [ref=e1484]:
+                      - generic [ref=e1486]: Access
+                      - generic [ref=e1487]:
+                        - text: Access provision
+                        - generic [ref=e1488]:
+                          - text: provisioning-engine
+                          - generic [ref=e1489]: · system
+                          - generic [ref=e1490]: → Spencer Larkin-Pouros
+                      - generic [ref=e1491]: LDN
+                      - generic "2026-07-23T05:02:26.656Z" [ref=e1492]: 09:13:32
+                    - listitem [ref=e1493]:
+                      - generic [ref=e1495]: Access
+                      - generic [ref=e1496]:
+                        - text: Access provision
+                        - generic [ref=e1497]:
+                          - text: provisioning-engine
+                          - generic [ref=e1498]: · system
+                          - generic [ref=e1499]: → Spencer Larkin-Pouros
+                      - generic [ref=e1500]: LDN
+                      - generic "2026-07-23T05:02:26.656Z" [ref=e1501]: 09:13:32
+                    - listitem [ref=e1502]:
+                      - generic [ref=e1504]: Access
+                      - generic [ref=e1505]:
+                        - text: Access provision
+                        - generic [ref=e1506]:
+                          - text: provisioning-engine
+                          - generic [ref=e1507]: · system
+                          - generic [ref=e1508]: → Spencer Larkin-Pouros
+                      - generic [ref=e1509]: LDN
+                      - generic "2026-07-23T05:02:26.656Z" [ref=e1510]: 09:13:32
+                    - listitem [ref=e1511]:
+                      - generic [ref=e1513]: Access
+                      - generic [ref=e1514]:
+                        - text: Access provision
+                        - generic [ref=e1515]:
+                          - text: provisioning-engine
+                          - generic [ref=e1516]: · system
+                          - generic [ref=e1517]: → Spencer Larkin-Pouros
+                      - generic [ref=e1518]: LDN
+                      - generic "2026-07-23T05:02:26.656Z" [ref=e1519]: 09:13:32
+                    - listitem [ref=e1520]:
+                      - generic [ref=e1522]: JML
+                      - generic [ref=e1523]:
+                        - text: Contractor convert
+                        - generic [ref=e1524]:
+                          - text: workday-hr-feed
+                          - generic [ref=e1525]: · system
+                          - generic [ref=e1526]: → Spencer Larkin-Pouros
+                      - generic [ref=e1527]: LDN
+                      - generic "2026-07-23T05:02:26.656Z" [ref=e1528]: 09:13:32
+                    - listitem [ref=e1529]:
+                      - generic [ref=e1531]: Auth
+                      - generic [ref=e1532]:
+                        - text: SSO federation
+                        - generic [ref=e1533]:
+                          - text: Keyshawn Murray
+                          - generic [ref=e1534]: · user
+                      - generic [ref=e1535]: SIN
+                      - generic "2026-07-23T05:02:16.156Z" [ref=e1536]: 09:13:32
+                    - listitem [ref=e1537]:
+                      - generic [ref=e1539]: Auth
+                      - generic [ref=e1540]:
+                        - text: Session start
+                        - generic [ref=e1541]:
+                          - text: Dillon Bartoletti
+                          - generic [ref=e1542]: · user
+                      - generic [ref=e1543]: BLR
+                      - generic "2026-07-23T05:02:13.156Z" [ref=e1544]: 09:13:32
+                    - listitem [ref=e1545]:
+                      - generic [ref=e1547]: Auth
+                      - generic [ref=e1548]:
+                        - text: Login success
+                        - generic [ref=e1549]:
+                          - text: Dillon Bartoletti
+                          - generic [ref=e1550]: · user
+                      - generic [ref=e1551]: BLR
+                      - generic "2026-07-23T05:02:13.156Z" [ref=e1552]: 09:13:32
+                    - listitem [ref=e1553]:
+                      - generic [ref=e1555]: Auth
+                      - generic [ref=e1556]:
+                        - text: Session start
+                        - generic [ref=e1557]:
+                          - text: Jaunita Mante
+                          - generic [ref=e1558]: · user
+                      - generic [ref=e1559]: BLR
+                      - generic "2026-07-23T05:02:13.156Z" [ref=e1560]: 09:13:32
+                    - listitem [ref=e1561]:
+                      - generic [ref=e1563]: Auth
+                      - generic [ref=e1564]:
+                        - text: Session start
+                        - generic [ref=e1565]:
+                          - text: Ewald Kassulke
+                          - generic [ref=e1566]: · user
+                      - generic [ref=e1567]: PNQ
+                      - generic "2026-07-23T05:02:13.156Z" [ref=e1568]: 09:13:32
+                    - listitem [ref=e1569]:
+                      - generic [ref=e1571]: Auth
+                      - generic [ref=e1572]:
+                        - text: Login success
+                        - generic [ref=e1573]:
+                          - text: Ewald Kassulke
+                          - generic [ref=e1574]: · user
+                      - generic [ref=e1575]: PNQ
+                      - generic "2026-07-23T05:02:13.156Z" [ref=e1576]: 09:13:32
+                    - listitem [ref=e1577]:
+                      - generic [ref=e1579]: Auth
+                      - generic [ref=e1580]:
+                        - text: Session start
+                        - generic [ref=e1581]:
+                          - text: Audreanne Abbott
+                          - generic [ref=e1582]: · user
+                      - generic [ref=e1583]: BLR
+                      - generic "2026-07-23T05:02:11.656Z" [ref=e1584]: 09:13:32
+                    - listitem [ref=e1585]:
+                      - generic [ref=e1587]: Compliance
+                      - generic [ref=e1588]:
+                        - text: NHI activity
+                        - generic [ref=e1589]:
+                          - text: svc-gateway-2ejo
+                          - generic [ref=e1590]: · service
+                      - generic [ref=e1591]: JAX
+                      - generic "2026-07-23T05:02:08.656Z" [ref=e1592]: 09:13:32
+                    - listitem [ref=e1593]:
+                      - generic [ref=e1595]: Auth
+                      - generic [ref=e1596]:
+                        - text: Session start
+                        - generic [ref=e1597]:
+                          - text: Dillon Bartoletti
+                          - generic [ref=e1598]: · user
+                      - generic [ref=e1599]: BLR
+                      - generic "2026-07-23T05:02:05.656Z" [ref=e1600]: 09:13:32
+                    - listitem [ref=e1601]:
+                      - generic [ref=e1603]: Auth
+                      - generic [ref=e1604]:
+                        - text: Login success
+                        - generic [ref=e1605]:
+                          - text: Dillon Bartoletti
+                          - generic [ref=e1606]: · user
+                      - generic [ref=e1607]: BLR
+                      - generic "2026-07-23T05:02:05.656Z" [ref=e1608]: 09:13:32
+                    - listitem [ref=e1609]:
+                      - generic [ref=e1611]: Auth
+                      - generic [ref=e1612]:
+                        - text: Session start
+                        - generic [ref=e1613]:
+                          - text: Karen Franecki
+                          - generic [ref=e1614]: · user
+                      - generic [ref=e1615]: PNQ
+                      - generic "2026-07-23T05:01:58.156Z" [ref=e1616]: 09:13:31
+                    - listitem [ref=e1617]:
+                      - generic [ref=e1619]: Auth
+                      - generic [ref=e1620]:
+                        - text: Login success
+                        - generic [ref=e1621]:
+                          - text: Karen Franecki
+                          - generic [ref=e1622]: · user
+                      - generic [ref=e1623]: PNQ
+                      - generic "2026-07-23T05:01:58.156Z" [ref=e1624]: 09:13:31
+                    - listitem [ref=e1625]:
+                      - generic [ref=e1627]: Auth
+                      - generic [ref=e1628]:
+                        - text: Session start
+                        - generic [ref=e1629]:
+                          - text: Dion Hahn
+                          - generic [ref=e1630]: · user
+                      - generic [ref=e1631]: BLR
+                      - generic "2026-07-23T05:01:55.156Z" [ref=e1632]: 09:13:31
+                    - listitem [ref=e1633]:
+                      - generic [ref=e1635]: Auth
+                      - generic [ref=e1636]:
+                        - text: Login success
+                        - generic [ref=e1637]:
+                          - text: Dion Hahn
+                          - generic [ref=e1638]: · user
+                      - generic [ref=e1639]: BLR
+                      - generic "2026-07-23T05:01:55.156Z" [ref=e1640]: 09:13:31
+                    - listitem [ref=e1641]:
+                      - generic [ref=e1643]: Access
+                      - generic [ref=e1644]:
+                        - text: Access revoke
+                        - generic [ref=e1645]:
+                          - text: provisioning-engine
+                          - generic [ref=e1646]: · system
+                          - generic [ref=e1647]: → Danielle Lebsack
+                      - generic [ref=e1648]: PNQ
+                      - generic "2026-07-23T05:01:44.536Z" [ref=e1649]: 09:13:31
+                    - listitem [ref=e1650]:
+                      - generic [ref=e1652]: Auth
+                      - generic [ref=e1653]:
+                        - text: Session start
+                        - generic [ref=e1654]:
+                          - text: Louise Miller
+                          - generic [ref=e1655]: · user
+                      - generic [ref=e1656]: FFT
+                      - generic "2026-07-23T05:01:38.476Z" [ref=e1657]: 09:13:31
+                    - listitem [ref=e1658]:
+                      - generic [ref=e1660]: Auth
+                      - generic [ref=e1661]:
+                        - text: MFA success
+                        - generic [ref=e1662]:
+                          - text: Louise Miller
+                          - generic [ref=e1663]: · user
+                      - generic [ref=e1664]: FFT
+                      - generic "2026-07-23T05:01:38.476Z" [ref=e1665]: 09:13:31
+                    - listitem [ref=e1666]:
+                      - generic [ref=e1668]: Auth
+                      - generic [ref=e1669]:
+                        - text: MFA challenge
+                        - generic [ref=e1670]:
+                          - text: Louise Miller
+                          - generic [ref=e1671]: · user
+                      - generic [ref=e1672]: FFT
+                      - generic "2026-07-23T05:01:38.476Z" [ref=e1673]: 09:13:31
+            - generic [ref=e1088]:
+              - region "Reference OneIM receiver" [ref=e1089]:
+                - generic [ref=e1095]:
+                  - generic [ref=e1096]:
+                    - generic [ref=e1097]:
+                      - generic [ref=e1098]: Queue depth
+                      - generic [ref=e1104]: "10"
+                    - generic [ref=e1105]:
+                      - generic [ref=e1106]: Provisioned
+                      - generic [ref=e1109]: 9,710
+                    - generic [ref=e1110]:
+                      - generic [ref=e1111]: Failed
+                      - generic [ref=e1116]: "169"
+                    - generic [ref=e1117]:
+                      - generic [ref=e1118]: Avg provision
+                      - generic [ref=e1123]: 246 ms
+                  - generic [ref=e1124]:
+                    - generic [ref=e1125]:
+                      - generic [ref=e1126]: SoD violations
+                      - generic [ref=e1133]: "0"
+                      - generic [ref=e1134]: clear
+                    - generic [ref=e1135]:
+                      - generic [ref=e1136]: Orphan accounts
+                      - generic [ref=e1140]: 4,006
+                      - generic [ref=e1141]: no owner
+                    - generic [ref=e1142]:
+                      - generic [ref=e1143]: Dormant accounts
+                      - generic [ref=e1147]: "0"
+                      - generic [ref=e1148]: clear
+                  - figure [ref=e1150]:
+                    - generic [ref=e1151]:
+                      - generic [ref=e1152]: Provisioning by connector
+                      - generic [ref=e1157]:
+                        - generic [ref=e1158]: Provisioned
+                        - generic [ref=e1161]: Failed
+                    - 'img "Provisioning by connector. GenericConnector: 5,296 provisioned, 103 failed; ActiveDirectory: 2,215 provisioned, 25 failed; Exchange: 2,199 provisioned, 41 failed; SAP: 0 provisioned, 0 failed; Mainframe: 0 provisioned, 0 failed" [ref=e1674]':
+                      - application [ref=e1168]:
+                        - generic [ref=e1194]:
+                          - generic [ref=e1195]:
+                            - generic [ref=e1196]: "0"
+                            - generic [ref=e1198]: 1,500
+                            - generic [ref=e1200]: 3,000
+                            - generic [ref=e1202]: 4,500
+                            - generic [ref=e1204]: 6,000
+                          - generic [ref=e1206]:
+                            - generic [ref=e1207]: GenericConnector
+                            - generic [ref=e1209]: ActiveDirectory
+                            - generic [ref=e1211]: Exchange
+                            - generic [ref=e1213]: SAP
+                            - generic [ref=e1215]: Mainframe
+                    - group [ref=e1217]:
+                      - generic "Data table" [ref=e1218] [cursor=pointer]
+                  - paragraph [ref=e1219]:
+                    - generic [ref=e1220]: "Total ingested: 8,564"
+                    - generic [ref=e1221]: "Last ingest: just now"
+              - region "Delivery adapter" [ref=e1222]:
+                - generic [ref=e1223]:
+                  - generic [ref=e1224]: Delivery adapter
+                  - generic [ref=e1228]: Circuit Closed
+                - generic [ref=e1232]:
+                  - generic [ref=e1233]:
+                    - generic [ref=e1234]:
+                      - generic [ref=e1235]: In flight
+                      - generic [ref=e1240]: "0"
+                    - generic [ref=e1241]:
+                      - generic [ref=e1242]: Queue depth
+                      - generic [ref=e1248]: "0"
+                    - generic [ref=e1249]:
+                      - generic [ref=e1250]: Delivered
+                      - generic [ref=e1254]: 6,225
+                    - generic [ref=e1255]:
+                      - generic [ref=e1256]: Dropped
+                      - generic [ref=e1260]: "0"
+                  - generic [ref=e1261]:
+                    - generic [ref=e1262]:
+                      - generic [ref=e1263]: Latency p50
+                      - generic [ref=e1265]: 0 ms
+                    - generic [ref=e1266]:
+                      - generic [ref=e1267]: Latency p95
+                      - generic [ref=e1269]: 27 ms
+                    - generic [ref=e1270]:
+                      - generic [ref=e1271]: Latency p99
+                      - generic [ref=e1273]: 41 ms
+  - region "Notifications"
+  - generic [ref=e1274]: 09:13:33
