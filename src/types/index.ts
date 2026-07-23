@@ -846,6 +846,34 @@ export interface EventMixWeights {
   byKind?: Partial<Record<EventKind, number>>;
 }
 
+/**
+ * Organic threat weaving. When enabled, the runtime spawns coordinated security and
+ * operational INCIDENTS (the chaos injectors) on a Poisson schedule in simulated time,
+ * with randomized kind, intensity and timing, so a run reproduces the natural rhythm of
+ * a real bank day, a mostly-legitimate stream carrying a low ambient rate of exceptions
+ * (the event mix already does that), punctuated by the occasional credential-stuffing
+ * wave, insider incident, ransomware attempt or audit surge, rather than a scripted set
+ * of bursts. Incident timing is forked off the run id, so the same seed keeps the
+ * workforce and arrival reproducible while the incident timeline differs every run.
+ * Omit (or set `enabled: false`) to leave the run to its ambient mix plus any explicit
+ * `chaos` windows.
+ */
+export interface ThreatProfile {
+  /** Master switch. When false the scheduler is inert. */
+  enabled: boolean;
+  /** Mean simulated MINUTES between incidents (exponential inter-arrival). Default 60. */
+  meanIntervalSimMin?: number;
+  /** Never run more than this many incidents at once; keeps a day natural, not a
+   *  stress test. Default 2. */
+  maxConcurrent?: number;
+  /** Incident intensity is sampled uniformly from [intensityMin, intensityMax] (0..1). */
+  intensityMin?: number;
+  intensityMax?: number;
+  /** Relative incidence weights per injector kind; omitted kinds use a sane default,
+   *  a weight of 0 excludes that kind entirely. */
+  kindWeights?: Partial<Record<ChaosInjectorKind, number>>;
+}
+
 /** Relative activity weight per location; shapes the multi-timezone diurnal curve. */
 export interface TimezoneWeights {
   byLocation: Record<LocationCode, number>;
@@ -867,6 +895,8 @@ export interface ScenarioConfig {
   timezoneWeights: TimezoneWeights;
   eventMix: EventMixWeights;
   chaos: ChaosInjectorConfig[];
+  /** Organic randomized incident weaving; omit to disable (ambient mix + explicit chaos only). */
+  threatProfile?: ThreatProfile;
   targetId: string;
   /** Real seconds to run; omit for open-ended (until stopped). */
   durationSec?: number;

@@ -161,6 +161,20 @@ export const chaosInjectorConfigSchema = z.object({
   params: z.record(z.string(), z.union([z.number(), z.string(), z.boolean()])).default({}),
 });
 
+/**
+ * Organic threat weaving. All knobs but `enabled` are optional; the runtime's
+ * `resolveThreatProfile` applies defaults and clamps. `kindWeights` keys are loose
+ * strings (the scheduler only reads the known injector kinds and ignores the rest).
+ */
+export const threatProfileSchema = z.object({
+  enabled: z.boolean().default(true),
+  meanIntervalSimMin: z.number().min(1).max(1440).optional(),
+  maxConcurrent: z.number().int().min(1).max(8).optional(),
+  intensityMin: z.number().min(0).max(1).optional(),
+  intensityMax: z.number().min(0).max(1).optional(),
+  kindWeights: z.record(z.string(), z.number().min(0)).optional(),
+});
+
 /** Event-mix weights. Category keys are strict; per-kind overrides are loose. */
 export const eventMixSchema = z.object({
   byCategory: z
@@ -205,6 +219,7 @@ export const scenarioInputSchema = z.object({
   timezoneWeights: timezoneWeightsSchema.prefault({}),
   eventMix: eventMixSchema.prefault({}),
   chaos: z.array(chaosInjectorConfigSchema).default([]),
+  threatProfile: threatProfileSchema.optional(),
   targetId: z.string().min(1),
   durationSec: z.number().min(1).max(2_592_000).optional(),
   seed: z.string().max(128).optional(),

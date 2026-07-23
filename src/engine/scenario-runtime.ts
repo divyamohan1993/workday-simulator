@@ -59,12 +59,21 @@ import type { ChaosContext, ChaosInjector } from './chaos.js';
 import { createChaosInjector } from './chaos.js';
 import { mergeBiases, pickKind, resolveMix, type ResolvedMix } from './mix.js';
 import { createPrng, type Prng } from './prng.js';
+import { createThreatScheduler, resolveThreatProfile, type ThreatScheduler } from './threat-scheduler.js';
 
 /** Real-time tick cadence. Small enough for smooth pacing, large enough to be cheap. */
 const TICK_MS = 25;
 
 /** How often run state is written back to the store (not per event: sqlite friendly). */
 const PERSIST_INTERVAL_MS = 1000;
+
+/** Max active-or-recent chaos incidents carried in a single telemetry frame (keeps the
+ *  WS payload bounded on a long run that fires many organic incidents). */
+const MAX_FRAME_CHAOS = 12;
+
+/** Safety cap on the live injector list for an open-ended run driven by a threat
+ *  profile. Bounded runs stay far below this; the prune only guards a misconfiguration. */
+const MAX_LIVE_INJECTORS = 256;
 
 /** Everything that lives for the duration of one run. */
 interface ActiveRun {
@@ -78,6 +87,7 @@ interface ActiveRun {
   seq: number;
   byKind: Partial<Record<EventKind, number>>;
   injectors: ChaosInjector[];
+  threatScheduler: ThreatScheduler | null;
   resolvedMix: ResolvedMix;
   lastActiveKeys: string;
   activeChaosKinds: ChaosInjectorKind[];
@@ -234,6 +244,51 @@ export function createScenarioRuntime(deps: RuntimeDependencies): ScenarioRuntim
     }
   };
 
+  /**
+   * Spawn one injector from a config, normalized to fire from the current elapsed time.
+   * Shared by the manual `injectChaos` API and the organic threat scheduler, so both
+   * apply the same normalization and mix-recompute, and both are bounded by the same
+   * live-injector safety cap.
+   */
+  const spawnInjectorNow = (run: ActiveRun, cfg: ChaosInjectorConfig): void => {
+    const normalized: ChaosInjectorConfig = {
+      ...cfg,
+      enabled: cfg.enabled !== false,
+      startAtSec: run.runState.elapsedSec + (cfg.startAtSec ?? 0),
+      params: cfg.params ?? {},
+    };
+    run.injectors.push(createChaosInjector(normalized));
+    // Force a mix recompute on the next tick so the new bias takes effect immediately.
+    run.lastActiveKeys = ' dirty';
+    // Bound the live list on an open-ended threat run: keep every currently-active
+    // injector plus the most-recent ones, dropping only long-expired entries. Their
+    // generated events are already tallied in run counters; only their chaosFired
+    // attribution in the summary is affected, an acceptable trade for bounded memory.
+    if (run.injectors.length > MAX_LIVE_INJECTORS) {
+      const elapsed = run.runState.elapsedSec;
+      const keep = new Set<ChaosInjector>(run.injectors.slice(-MAX_LIVE_INJECTORS));
+      for (const inj of run.injectors) if (inj.isActive(elapsed)) keep.add(inj);
+      run.injectors = run.injectors.filter((inj) => keep.has(inj));
+    }
+  };
+
+  /**
+   * Advance the organic threat scheduler and spawn any incident it decides is due. The
+   * scheduler fires at most one incident per tick and self-limits to the profile's
+   * maxConcurrent by reading the current active-injector count, so a natural day carries
+   * occasional overlapping incidents without ever becoming a wall of attacks.
+   */
+  const driveThreatScheduler = (run: ActiveRun, elapsedSec: number): void => {
+    if (!run.threatScheduler || run.paused) return;
+    let activeCount = 0;
+    for (const injector of run.injectors) if (injector.isActive(elapsedSec)) activeCount += 1;
+    const spawned = run.threatScheduler.due(run.clock.now(), activeCount);
+    for (const cfg of spawned) {
+      spawnInjectorNow(run, cfg);
+      logger.info({ kind: cfg.kind, intensity: cfg.intensity }, 'threat scheduler spawned incident');
+    }
+  };
+
   const clampRate = (run: ActiveRun, rate: number): number => {
     if (!Number.isFinite(rate) || rate <= 0) return 0;
     return rate > run.effMaxRps ? run.effMaxRps : rate;
@@ -312,9 +367,14 @@ export function createScenarioRuntime(deps: RuntimeDependencies): ScenarioRuntim
 
   const buildFrame = (run: ActiveRun): TelemetryFrame => {
     run.frameSeq += 1;
-    const activeChaos: ActiveChaos[] = run.injectors
-      .filter((injector) => injector.isActive(run.runState.elapsedSec) || injector.eventsInjected > 0)
-      .map((injector) => injector.toActiveChaos(run.startWallMs));
+    const elapsed = run.runState.elapsedSec;
+    const shown = run.injectors.filter((injector) => injector.isActive(elapsed) || injector.eventsInjected > 0);
+    // Cap the frame's incident list: currently-active injectors sit at the end of the
+    // spawn-ordered array, so the last MAX_FRAME_CHAOS always include every active one
+    // plus the most-recently-expired. The run summary still reports the full set.
+    const activeChaos: ActiveChaos[] = (shown.length > MAX_FRAME_CHAOS ? shown.slice(-MAX_FRAME_CHAOS) : shown).map(
+      (injector) => injector.toActiveChaos(run.startWallMs),
+    );
 
     const frame = metrics.snapshot({
       clock: run.clock.state(),
@@ -491,6 +551,9 @@ export function createScenarioRuntime(deps: RuntimeDependencies): ScenarioRuntim
     const elapsedSec = (wallNow - run.startWallMs) / 1000;
     run.runState.elapsedSec = elapsedSec;
 
+    // Spawn any organically-scheduled incident BEFORE recomputing the active chaos set,
+    // so a just-spawned injector is picked up as active on this same tick.
+    driveThreatScheduler(run, elapsedSec);
     updateChaos(run, elapsedSec, delta, !run.paused);
 
     const bp = run.adapter.pressure();
@@ -592,6 +655,16 @@ export function createScenarioRuntime(deps: RuntimeDependencies): ScenarioRuntim
       seq: 0,
       byKind: {},
       injectors,
+      // Fork the threat scheduler's randomness off the RUN ID as well as the seed, so the
+      // workforce and arrival stay reproducible for a seed while the incident timeline
+      // differs every run, which is what makes each simulated day feel distinct.
+      threatScheduler:
+        scenario.threatProfile && scenario.threatProfile.enabled
+          ? createThreatScheduler({
+              prng: createPrng(`${seed}:${runId}:threat`),
+              profile: resolveThreatProfile(scenario.threatProfile),
+            })
+          : null,
       resolvedMix: resolveMix(scenario.eventMix),
       lastActiveKeys: '',
       activeChaosKinds: [],

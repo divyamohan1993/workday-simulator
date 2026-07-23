@@ -1,0 +1,906 @@
+- generic [ref=f1e1]:
+  - generic [ref=f1e2]:
+    - link "Skip to content" [ref=f1e3] [cursor=pointer]:
+      - /url: "#main-content"
+    - generic [ref=f1e33]:
+      - banner [ref=f1e34]:
+        - generic [ref=f1e40]:
+          - paragraph [ref=f1e41]: Workday Simulator
+          - paragraph [ref=f1e42]: Bank Ops Control Room
+        - generic [ref=f1e45]:
+          - generic [ref=f1e46]:
+            - generic [ref=f1e47]:
+              - generic [ref=f1e48]: 07:02:23
+              - generic [ref=f1e49]: FFT
+            - generic [ref=f1e50]:
+              - generic [ref=f1e52]: Pre market
+              - generic [ref=f1e266]: · Thu
+          - generic "Simulated seconds per real second" [ref=f1e53]: 60× accel
+        - 'list "Follow the sun: local time and activity by site" [ref=f1e55]':
+          - listitem "New York · 01:02 local · 9% activity" [ref=f1e2971]:
+            - generic [ref=f1e57]:
+              - generic [ref=f1e58]: ○
+              - text: NYC
+            - generic [ref=f1e59]: 01:02
+          - listitem "Jacksonville · 01:02 local · 9% activity" [ref=f1e2972]:
+            - generic [ref=f1e61]:
+              - generic [ref=f1e62]: ○
+              - text: JAX
+            - generic [ref=f1e63]: 01:02
+          - listitem "London · 06:02 local · 45% activity" [ref=f1e2973]:
+            - generic [ref=f1e65]:
+              - generic [ref=f1e66]: ●
+              - text: LDN
+            - generic [ref=f1e67]: 06:02
+          - listitem "Frankfurt · 07:02 local · 56% activity" [ref=f1e2974]:
+            - generic [ref=f1e69]:
+              - generic [ref=f1e70]: ●
+              - text: FFT
+            - generic [ref=f1e71]: 07:02
+          - listitem "Bengaluru · 10:32 local · 90% activity" [ref=f1e2975]:
+            - generic [ref=f1e73]:
+              - generic [ref=f1e74]: ●
+              - text: BLR
+            - generic [ref=f1e75]: 10:32
+          - listitem "Pune · 10:32 local · 90% activity" [ref=f1e2976]:
+            - generic [ref=f1e77]:
+              - generic [ref=f1e78]: ●
+              - text: PNQ
+            - generic [ref=f1e79]: 10:32
+          - listitem "Hong Kong · 13:02 local · 100% activity" [ref=f1e2977]:
+            - generic [ref=f1e81]:
+              - generic [ref=f1e82]: ●
+              - text: HKG
+            - generic [ref=f1e83]: 13:02
+          - listitem "Singapore · 13:02 local · 100% activity" [ref=f1e2978]:
+            - generic [ref=f1e85]:
+              - generic [ref=f1e86]: ●
+              - text: SIN
+            - generic [ref=f1e87]: 13:02
+        - generic [ref=f1e88]:
+          - button "Running · 13.2 rps" [active] [ref=f1e2979] [cursor=pointer]
+          - status "Telemetry stream Live" [ref=f1e89]:
+            - text: Live
+            - generic [ref=f1e277]: · 0s
+          - button "Sign out" [ref=f1e92] [cursor=pointer]
+      - generic [ref=f1e97]:
+        - complementary [ref=f1e98]:
+          - navigation "Primary" [ref=f1e99]:
+            - button "Live Ops Accelerated workday, live telemetry" [ref=f1e100] [cursor=pointer]:
+              - generic [ref=f1e103]:
+                - generic [ref=f1e104]: Live Ops
+                - generic [ref=f1e105]: Accelerated workday, live telemetry
+            - button "Scenario Builder Compose load, chaos, start a run" [ref=f1e106] [cursor=pointer]:
+              - generic [ref=f1e108]:
+                - generic [ref=f1e109]: Scenario Builder
+                - generic [ref=f1e110]: Compose load, chaos, start a run
+            - button "Targets Delivery destinations & auth" [ref=f1e111] [cursor=pointer]:
+              - generic [ref=f1e116]:
+                - generic [ref=f1e117]: Targets
+                - generic [ref=f1e118]: Delivery destinations & auth
+            - button "Run History Past runs & summaries" [ref=f1e119] [cursor=pointer]:
+              - generic [ref=f1e124]:
+                - generic [ref=f1e125]: Run History
+                - generic [ref=f1e126]: Past runs & summaries
+          - generic [ref=f1e127]:
+            - paragraph [ref=f1e128]: Reference OneIM
+            - paragraph [ref=f1e131]: A built-in receiver ships with the simulator, so runs are demonstrable end-to-end with no external Identity Manager.
+        - main [ref=f1e132]:
+          - generic [ref=f1e278]:
+            - generic [ref=f1e279]:
+              - region "Current throughput" [ref=f1e280]:
+                - generic [ref=f1e281]:
+                  - generic [ref=f1e282]:
+                    - paragraph [ref=f1e283]: Current throughput
+                    - paragraph [ref=f1e284]:
+                      - generic [ref=f1e285]: "13.2"
+                      - generic [ref=f1e286]: events / sec
+                  - generic [ref=f1e287]: Running
+                - generic [ref=f1e289]:
+                  - generic [ref=f1e290]:
+                    - generic [ref=f1e291]: vs target
+                    - generic [ref=f1e292]: 13.2 / 10.2 rps
+                  - meter "vs target" [ref=f1e293]
+              - generic [ref=f1e295]:
+                - generic [ref=f1e296]:
+                  - generic [ref=f1e297]: Generated
+                  - generic [ref=f1e301]: 2,276
+                  - generic [ref=f1e302]: events this run
+                - generic [ref=f1e303]:
+                  - generic [ref=f1e304]: Delivered
+                  - generic [ref=f1e308]: 2,276
+                - generic [ref=f1e309]:
+                  - generic [ref=f1e310]: Failed
+                  - generic [ref=f1e315]: "0"
+                - generic [ref=f1e316]:
+                  - generic [ref=f1e317]: Dropped
+                  - generic [ref=f1e321]: "0"
+                - generic [ref=f1e322]:
+                  - generic [ref=f1e323]: Error rate
+                  - generic [ref=f1e327]: 0.00%
+                - generic [ref=f1e328]:
+                  - generic [ref=f1e329]: Circuit
+                  - generic [ref=f1e333]: Closed
+            - generic [ref=f1e334]:
+              - region "Throughput · latency · errors" [ref=f1e336]:
+                - generic [ref=f1e343]:
+                  - figure [ref=f1e344]:
+                    - generic [ref=f1e345]:
+                      - generic [ref=f1e346]: Throughput (RPS)
+                      - list [ref=f1e351]:
+                        - listitem [ref=f1e352]: Current
+                        - listitem [ref=f1e354]: Target
+                    - img "Throughput (RPS). Current 13.2 requests per second against a target of 10.2." [ref=f1e2980]:
+                      - application [ref=f1e359]:
+                        - generic [ref=f1e373]:
+                          - generic [ref=f1e374]:
+                            - generic [ref=f1e2987]: 08:16:03
+                            - generic [ref=f1e2989]: 08:16:44
+                            - generic [ref=f1e2991]: 08:17:25
+                            - generic [ref=f1e2993]: 08:18:12
+                          - generic [ref=f1e383]:
+                            - generic [ref=f1e384]: "0.0"
+                            - generic [ref=f1e386]: "6.0"
+                            - generic [ref=f1e388]: "12.0"
+                            - generic [ref=f1e390]: "18.0"
+                            - generic [ref=f1e392]: "24.0"
+                  - figure [ref=f1e394]:
+                    - generic [ref=f1e395]:
+                      - generic [ref=f1e396]: Delivery latency
+                      - list [ref=f1e400]:
+                        - listitem [ref=f1e401]: p50
+                        - listitem [ref=f1e403]: p95
+                        - listitem [ref=f1e405]: p99
+                    - img "Delivery latency. p50 0 ms, p95 24 ms, p99 27 ms." [ref=f1e2572]:
+                      - application [ref=f1e410]:
+                        - generic [ref=f1e421]:
+                          - generic [ref=f1e422]:
+                            - generic [ref=f1e2999]: 08:16:00
+                            - generic [ref=f1e3001]: 08:16:42
+                            - generic [ref=f1e3003]: 08:17:24
+                            - generic [ref=f1e3005]: 08:18:12
+                          - generic [ref=f1e429]:
+                            - generic [ref=f1e430]: 0 ms
+                            - generic [ref=f1e432]: 7 ms
+                            - generic [ref=f1e434]: 14 ms
+                            - generic [ref=f1e436]: 21 ms
+                            - generic [ref=f1e438]: 28 ms
+                  - figure [ref=f1e440]:
+                    - generic [ref=f1e441]:
+                      - generic [ref=f1e442]: Delivery error rate
+                      - list [ref=f1e446]:
+                        - listitem [ref=f1e447]: Errors
+                        - listitem [ref=f1e449]: 1% threshold
+                    - img "Delivery error rate. Error rate 0.00 percent; alert threshold 1 percent." [ref=f1e451]:
+                      - application [ref=f1e454]:
+                        - generic [ref=f1e458]:
+                          - generic [ref=f1e459]:
+                            - generic [ref=f1e3007]: 08:16:03
+                            - generic [ref=f1e3009]: 08:16:44
+                            - generic [ref=f1e3011]: 08:17:25
+                            - generic [ref=f1e3013]: 08:18:12
+                          - generic [ref=f1e468]:
+                            - generic [ref=f1e469]: 0%
+                            - generic [ref=f1e471]: 1%
+                            - generic [ref=f1e473]: 2%
+                            - generic [ref=f1e475]: 3%
+                            - generic [ref=f1e477]: 4%
+                  - figure [ref=f1e479]:
+                    - 'img "Event mix. 2,276 events: Authentication 67%, Joiner / Mover / Leaver 1%, Access governance 13%, Banking transactions 18%, Compliance & risk 1%" [ref=f1e3015]':
+                      - generic [ref=f1e488]:
+                        - generic [ref=f1e489]:
+                          - application [ref=f1e492]
+                          - generic:
+                            - generic: 2,276
+                            - generic: events
+                        - list [ref=f1e508]:
+                          - listitem [ref=f1e509]:
+                            - generic [ref=f1e510]: Authentication
+                            - generic [ref=f1e513]:
+                              - generic [ref=f1e514]: 1,517
+                              - generic [ref=f1e515]: 67%
+                          - listitem [ref=f1e516]:
+                            - generic [ref=f1e517]: Joiner / Mover / Leaver
+                            - generic [ref=f1e520]:
+                              - generic [ref=f1e521]: "25"
+                              - generic [ref=f1e522]: 1%
+                          - listitem [ref=f1e523]:
+                            - generic [ref=f1e524]: Access governance
+                            - generic [ref=f1e527]:
+                              - generic [ref=f1e528]: "293"
+                              - generic [ref=f1e529]: 13%
+                          - listitem [ref=f1e530]:
+                            - generic [ref=f1e531]: Banking transactions
+                            - generic [ref=f1e534]:
+                              - generic [ref=f1e535]: "421"
+                              - generic [ref=f1e536]: 18%
+                          - listitem [ref=f1e537]:
+                            - generic [ref=f1e538]: Compliance & risk
+                            - generic [ref=f1e541]:
+                              - generic [ref=f1e542]: "20"
+                              - generic [ref=f1e543]: 1%
+                    - group [ref=f1e544]:
+                      - generic "Data table" [ref=f1e545] [cursor=pointer]
+              - generic "Live event stream" [ref=f1e547]:
+                - generic [ref=f1e548]:
+                  - generic [ref=f1e549]: Live event stream
+                  - generic [ref=f1e551]: 60 recent
+                - log "Recent simulated events" [ref=f1e552]:
+                  - list [ref=f1e553]:
+                    - listitem [ref=f1e3032]:
+                      - generic [ref=f1e3034]: Auth
+                      - generic [ref=f1e3035]:
+                        - text: MFA success
+                        - generic [ref=f1e3036]:
+                          - text: Felicia Hodkiewicz
+                          - generic [ref=f1e3037]: · user
+                      - generic [ref=f1e3038]: FFT
+                      - generic "2026-07-23T05:01:59.962Z" [ref=f1e3039]: 08:18:12
+                    - listitem [ref=f1e3040]:
+                      - generic [ref=f1e3042]: Auth
+                      - generic [ref=f1e3043]:
+                        - text: Login failure
+                        - generic [ref=f1e3044]:
+                          - text: Mitchell Renner
+                          - generic [ref=f1e3045]: · user
+                      - generic [ref=f1e3046]: PNQ
+                      - generic "2026-07-23T05:01:59.962Z" [ref=f1e3047]: 08:18:12
+                    - listitem [ref=f1e3048]:
+                      - generic [ref=f1e3050]: Auth
+                      - generic [ref=f1e3051]:
+                        - text: Session end
+                        - generic [ref=f1e3052]:
+                          - text: Alexandrea O'Glover
+                          - generic [ref=f1e3053]: · user
+                      - generic [ref=f1e3054]: BLR
+                      - generic "2026-07-23T05:01:56.962Z" [ref=f1e3055]: 08:18:12
+                    - listitem [ref=f1e3056]:
+                      - generic [ref=f1e3058]: Auth
+                      - generic [ref=f1e3059]:
+                        - text: Session start
+                        - generic [ref=f1e3060]:
+                          - text: Þóra Skłodowska
+                          - generic [ref=f1e3061]: · user
+                      - generic [ref=f1e3062]: PNQ
+                      - generic "2026-07-23T05:01:52.402Z" [ref=f1e3063]: 08:18:11
+                    - listitem [ref=f1e3064]:
+                      - generic [ref=f1e3066]: Auth
+                      - generic [ref=f1e3067]:
+                        - text: Login success
+                        - generic [ref=f1e3068]:
+                          - text: Þóra Skłodowska
+                          - generic [ref=f1e3069]: · user
+                      - generic [ref=f1e3070]: PNQ
+                      - generic "2026-07-23T05:01:52.402Z" [ref=f1e3071]: 08:18:11
+                    - listitem [ref=f1e3072]:
+                      - generic [ref=f1e3074]: Auth
+                      - generic [ref=f1e3075]:
+                        - text: Session end
+                        - generic [ref=f1e3076]:
+                          - text: Mckenzie Haag
+                          - generic [ref=f1e3077]: · user
+                      - generic [ref=f1e3078]: BLR
+                      - generic "2026-07-23T05:01:40.342Z" [ref=f1e3079]: 08:18:11
+                    - listitem [ref=f1e3080]:
+                      - generic [ref=f1e3082]: Auth
+                      - generic [ref=f1e3083]:
+                        - text: MFA success
+                        - generic [ref=f1e3084]:
+                          - text: Renée Skłodowska
+                          - generic [ref=f1e3085]: · user
+                      - generic [ref=f1e3086]: BLR
+                      - generic "2026-07-23T05:01:38.842Z" [ref=f1e3087]: 08:18:11
+                    - listitem [ref=f1e3088]:
+                      - generic [ref=f1e3090]: Auth
+                      - generic [ref=f1e3091]:
+                        - text: Session start
+                        - generic [ref=f1e3092]:
+                          - text: Hayley Cormier
+                          - generic [ref=f1e3093]: · user
+                      - generic [ref=f1e3094]: BLR
+                      - generic "2026-07-23T05:01:34.342Z" [ref=f1e3095]: 08:18:11
+                    - listitem [ref=f1e3096]:
+                      - generic [ref=f1e3098]: Txn
+                      - generic [ref=f1e3099]:
+                        - text: Trade book
+                        - generic [ref=f1e3100]:
+                          - text: Jasper Cummerata
+                          - generic [ref=f1e3101]: · user
+                      - generic [ref=f1e3102]: BLR
+                      - generic "2026-07-23T05:01:26.782Z" [ref=f1e3103]: 08:18:11
+                    - listitem [ref=f1e3104]:
+                      - generic [ref=f1e3106]: Auth
+                      - generic [ref=f1e3107]:
+                        - text: Session start
+                        - generic [ref=f1e3108]:
+                          - text: Rosa Bailey
+                          - generic [ref=f1e3109]: · user
+                      - generic [ref=f1e3110]: PNQ
+                      - generic "2026-07-23T05:01:16.162Z" [ref=f1e3111]: 08:18:11
+                    - listitem [ref=f1e3112]:
+                      - generic [ref=f1e3114]: Auth
+                      - generic [ref=f1e3115]:
+                        - text: Login success
+                        - generic [ref=f1e3116]:
+                          - text: Rosa Bailey
+                          - generic [ref=f1e3117]: · user
+                      - generic [ref=f1e3118]: PNQ
+                      - generic "2026-07-23T05:01:16.162Z" [ref=f1e3119]: 08:18:11
+                    - listitem [ref=f1e3120]:
+                      - generic [ref=f1e3122]: Txn
+                      - generic [ref=f1e3123]:
+                        - text: Payment SEPA
+                        - generic [ref=f1e3124]:
+                          - text: Marina Steuber
+                          - generic [ref=f1e3125]: · user
+                      - generic [ref=f1e3126]: SIN
+                      - generic "2026-07-23T05:01:11.542Z" [ref=f1e3127]: 08:18:11
+                    - listitem [ref=f1e3128]:
+                      - generic [ref=f1e3130]: Auth
+                      - generic [ref=f1e3131]:
+                        - text: Session start
+                        - generic [ref=f1e3132]:
+                          - text: Norman Considine
+                          - generic [ref=f1e3133]: · user
+                      - generic [ref=f1e3134]: JAX
+                      - generic "2026-07-23T05:01:11.542Z" [ref=f1e3135]: 08:18:11
+                    - listitem [ref=f1e3136]:
+                      - generic [ref=f1e3138]: Auth
+                      - generic [ref=f1e3139]:
+                        - text: MFA success
+                        - generic [ref=f1e3140]:
+                          - text: Norman Considine
+                          - generic [ref=f1e3141]: · user
+                      - generic [ref=f1e3142]: JAX
+                      - generic "2026-07-23T05:01:11.542Z" [ref=f1e3143]: 08:18:11
+                    - listitem [ref=f1e3144]:
+                      - generic [ref=f1e3146]: Auth
+                      - generic [ref=f1e3147]:
+                        - text: MFA challenge
+                        - generic [ref=f1e3148]:
+                          - text: Norman Considine
+                          - generic [ref=f1e3149]: · user
+                      - generic [ref=f1e3150]: JAX
+                      - generic "2026-07-23T05:01:11.542Z" [ref=f1e3151]: 08:18:11
+                    - listitem [ref=f1e3152]:
+                      - generic [ref=f1e3154]: Auth
+                      - generic [ref=f1e3155]:
+                        - text: Login success
+                        - generic [ref=f1e3156]:
+                          - text: Norman Considine
+                          - generic [ref=f1e3157]: · user
+                      - generic [ref=f1e3158]: JAX
+                      - generic "2026-07-23T05:01:11.542Z" [ref=f1e3159]: 08:18:11
+                    - listitem [ref=f1e3160]:
+                      - generic [ref=f1e3162]: Auth
+                      - generic [ref=f1e3163]:
+                        - text: Login success
+                        - generic [ref=f1e3164]:
+                          - text: Oleta Keebler
+                          - generic [ref=f1e3165]: · user
+                      - generic [ref=f1e3166]: FFT
+                      - generic "2026-07-23T05:00:21.502Z" [ref=f1e3167]: 08:18:10
+                    - listitem [ref=f1e3168]:
+                      - generic [ref=f1e3170]: Txn
+                      - generic [ref=f1e3171]:
+                        - text: Card Txn
+                        - generic [ref=f1e3172]:
+                          - text: Þóra Åberg
+                          - generic [ref=f1e3173]: · user
+                      - generic [ref=f1e3174]: SIN
+                      - generic "2026-07-23T04:59:49.822Z" [ref=f1e3175]: 08:18:09
+                    - listitem [ref=f1e3176]:
+                      - generic [ref=f1e3178]: Txn
+                      - generic [ref=f1e3179]:
+                        - text: Payment SEPA
+                        - generic [ref=f1e3180]:
+                          - text: Ada Kovacek
+                          - generic [ref=f1e3181]: · user
+                      - generic [ref=f1e3182]: LDN
+                      - generic "2026-07-23T04:59:30.202Z" [ref=f1e3183]: 08:18:09
+                    - listitem [ref=f1e3184]:
+                      - generic [ref=f1e3186]: Access
+                      - generic [ref=f1e3187]:
+                        - text: Access provision
+                        - generic [ref=f1e3188]:
+                          - text: provisioning-engine
+                          - generic [ref=f1e3189]: · system
+                          - generic [ref=f1e3190]: → Kara Christiansen
+                      - generic [ref=f1e3191]: PNQ
+                      - generic "2026-07-23T04:59:30.202Z" [ref=f1e3192]: 08:18:09
+                    - listitem [ref=f1e3193]:
+                      - generic [ref=f1e3195]: Txn
+                      - generic [ref=f1e3196]:
+                        - text: Payment SEPA
+                        - generic [ref=f1e3197]:
+                          - text: Jim Medhurst
+                          - generic [ref=f1e3198]: · user
+                      - generic [ref=f1e3199]: NYC
+                      - generic "2026-07-23T04:59:22.582Z" [ref=f1e3200]: 08:18:09
+                    - listitem [ref=f1e3201]:
+                      - generic [ref=f1e3203]: Txn
+                      - generic [ref=f1e3204]:
+                        - text: Card Txn
+                        - generic [ref=f1e3205]:
+                          - text: Lilly Spinka
+                          - generic [ref=f1e3206]: · user
+                      - generic [ref=f1e3207]: PNQ
+                      - generic "2026-07-23T04:59:21.082Z" [ref=f1e3208]: 08:18:09
+                    - listitem [ref=f1e3209]:
+                      - generic [ref=f1e3211]: Txn
+                      - generic [ref=f1e3212]:
+                        - text: Payment SEPA
+                        - generic [ref=f1e3213]:
+                          - text: Jack Kunze
+                          - generic [ref=f1e3214]: · user
+                      - generic [ref=f1e3215]: JAX
+                      - generic "2026-07-23T04:59:15.082Z" [ref=f1e3216]: 08:18:09
+                    - listitem [ref=f1e3217]:
+                      - generic [ref=f1e3219]: Txn
+                      - generic [ref=f1e3220]:
+                        - text: Payment SEPA
+                        - generic [ref=f1e3221]:
+                          - text: Minnie 🐋 Beier
+                          - generic [ref=f1e3222]: · user
+                      - generic [ref=f1e3223]: LDN
+                      - generic "2026-07-23T04:59:13.522Z" [ref=f1e3224]: 08:18:09
+                    - listitem [ref=f1e3225]:
+                      - generic [ref=f1e3227]: Auth
+                      - generic [ref=f1e3228]:
+                        - text: MFA success
+                        - generic [ref=f1e3229]:
+                          - text: Chesley Stoltenberg-Lind
+                          - generic [ref=f1e3230]: · user
+                      - generic [ref=f1e3231]: BLR
+                      - generic "2026-07-23T04:59:02.902Z" [ref=f1e3232]: 08:18:09
+                    - listitem [ref=f1e3233]:
+                      - generic [ref=f1e3235]: Auth
+                      - generic [ref=f1e3236]:
+                        - text: Login success
+                        - generic [ref=f1e3237]:
+                          - text: Linda Mosciski
+                          - generic [ref=f1e3238]: · user
+                      - generic [ref=f1e3239]: BLR
+                      - generic "2026-07-23T04:59:02.902Z" [ref=f1e3240]: 08:18:09
+                    - listitem [ref=f1e3241]:
+                      - generic [ref=f1e3243]: Txn
+                      - generic [ref=f1e3244]:
+                        - text: Payment SEPA
+                        - generic [ref=f1e3245]:
+                          - text: Tillman Boyer
+                          - generic [ref=f1e3246]: · user
+                      - generic [ref=f1e3247]: FFT
+                      - generic "2026-07-23T04:58:55.342Z" [ref=f1e3248]: 08:18:08
+                    - listitem [ref=f1e3249]:
+                      - generic [ref=f1e3251]: Auth
+                      - generic [ref=f1e3252]:
+                        - text: Session start
+                        - generic [ref=f1e3253]:
+                          - text: Nora Dibbert
+                          - generic [ref=f1e3254]: · user
+                      - generic [ref=f1e3255]: SIN
+                      - generic "2026-07-23T04:58:50.722Z" [ref=f1e3256]: 08:18:08
+                    - listitem [ref=f1e3257]:
+                      - generic [ref=f1e3259]: Auth
+                      - generic [ref=f1e3260]:
+                        - text: Login success
+                        - generic [ref=f1e3261]:
+                          - text: Nora Dibbert
+                          - generic [ref=f1e3262]: · user
+                      - generic [ref=f1e3263]: SIN
+                      - generic "2026-07-23T04:58:50.722Z" [ref=f1e3264]: 08:18:08
+                    - listitem [ref=f1e3265]:
+                      - generic [ref=f1e3267]: Auth
+                      - generic [ref=f1e3268]:
+                        - text: SSO federation
+                        - generic [ref=f1e3269]:
+                          - text: Ardith Adams
+                          - generic [ref=f1e3270]: · user
+                      - generic [ref=f1e3271]: HKG
+                      - generic "2026-07-23T04:58:47.782Z" [ref=f1e3272]: 08:18:08
+                    - listitem [ref=f1e3273]:
+                      - generic [ref=f1e3275]: Txn
+                      - generic [ref=f1e3276]:
+                        - text: Trade book
+                        - generic [ref=f1e3277]:
+                          - text: Shelia Baumbach
+                          - generic [ref=f1e3278]: · user
+                      - generic [ref=f1e3279]: NYC
+                      - generic "2026-07-23T04:58:28.042Z" [ref=f1e3280]: 08:18:08
+                    - listitem [ref=f1e3281]:
+                      - generic [ref=f1e3283]: Auth
+                      - generic [ref=f1e3284]:
+                        - text: Session start
+                        - generic [ref=f1e3285]:
+                          - text: Karianne Hoppe
+                          - generic [ref=f1e3286]: · user
+                      - generic [ref=f1e3287]: HKG
+                      - generic "2026-07-23T04:58:17.482Z" [ref=f1e3288]: 08:18:08
+                    - listitem [ref=f1e3289]:
+                      - generic [ref=f1e3291]: Auth
+                      - generic [ref=f1e3292]:
+                        - text: MFA success
+                        - generic [ref=f1e3293]:
+                          - text: Karianne Hoppe
+                          - generic [ref=f1e3294]: · user
+                      - generic [ref=f1e3295]: HKG
+                      - generic "2026-07-23T04:58:17.482Z" [ref=f1e3296]: 08:18:08
+                    - listitem [ref=f1e3297]:
+                      - generic [ref=f1e3299]: Auth
+                      - generic [ref=f1e3300]:
+                        - text: MFA challenge
+                        - generic [ref=f1e3301]:
+                          - text: Karianne Hoppe
+                          - generic [ref=f1e3302]: · user
+                      - generic [ref=f1e3303]: HKG
+                      - generic "2026-07-23T04:58:17.482Z" [ref=f1e3304]: 08:18:08
+                    - listitem [ref=f1e3305]:
+                      - generic [ref=f1e3307]: Auth
+                      - generic [ref=f1e3308]:
+                        - text: Login success
+                        - generic [ref=f1e3309]:
+                          - text: Karianne Hoppe
+                          - generic [ref=f1e3310]: · user
+                      - generic [ref=f1e3311]: HKG
+                      - generic "2026-07-23T04:58:17.482Z" [ref=f1e3312]: 08:18:08
+                    - listitem [ref=f1e3313]:
+                      - generic [ref=f1e3315]: Txn
+                      - generic [ref=f1e3316]:
+                        - text: Payment SWIFT
+                        - generic [ref=f1e3317]:
+                          - text: Brielle Schumm
+                          - generic [ref=f1e3318]: · user
+                      - generic [ref=f1e3319]: BLR
+                      - generic "2026-07-23T04:58:17.482Z" [ref=f1e3320]: 08:18:08
+                    - listitem [ref=f1e3321]:
+                      - generic [ref=f1e3323]: Auth
+                      - generic [ref=f1e3324]:
+                        - text: MFA challenge
+                        - generic [ref=f1e3325]:
+                          - text: Mae Beahan
+                          - generic [ref=f1e3326]: · user
+                      - generic [ref=f1e3327]: PNQ
+                      - generic "2026-07-23T04:58:08.302Z" [ref=f1e3328]: 08:18:08
+                    - listitem [ref=f1e3329]:
+                      - generic [ref=f1e3331]: Txn
+                      - generic [ref=f1e3332]:
+                        - text: Card Txn
+                        - generic [ref=f1e3333]:
+                          - text: Edward Koch-Barton
+                          - generic [ref=f1e3334]: · user
+                      - generic [ref=f1e3335]: HKG
+                      - generic "2026-07-23T04:58:06.742Z" [ref=f1e3336]: 08:18:08
+                    - listitem [ref=f1e3337]:
+                      - generic [ref=f1e3339]: Auth
+                      - generic [ref=f1e3340]:
+                        - text: Session start
+                        - generic [ref=f1e3341]:
+                          - text: Garry Gulgowski
+                          - generic [ref=f1e3342]: · user
+                      - generic [ref=f1e3343]: PNQ
+                      - generic "2026-07-23T04:58:06.742Z" [ref=f1e3344]: 08:18:08
+                    - listitem [ref=f1e3345]:
+                      - generic [ref=f1e3347]: Auth
+                      - generic [ref=f1e3348]:
+                        - text: Login success
+                        - generic [ref=f1e3349]:
+                          - text: Garry Gulgowski
+                          - generic [ref=f1e3350]: · user
+                      - generic [ref=f1e3351]: PNQ
+                      - generic "2026-07-23T04:58:06.742Z" [ref=f1e3352]: 08:18:08
+                    - listitem [ref=f1e3353]:
+                      - generic [ref=f1e3355]: Txn
+                      - generic [ref=f1e3356]:
+                        - text: Card Txn
+                        - generic [ref=f1e3357]:
+                          - text: Bryan Bogan-Pfannerstill
+                          - generic [ref=f1e3358]: · user
+                      - generic [ref=f1e3359]: HKG
+                      - generic "2026-07-23T05:01:11.542Z" [ref=f1e3360]: 08:18:11
+                    - listitem [ref=f1e3361]:
+                      - generic [ref=f1e3363]: Auth
+                      - generic [ref=f1e3364]:
+                        - text: Session start
+                        - generic [ref=f1e3365]:
+                          - text: Jeffery Turner
+                          - generic [ref=f1e3366]: · user
+                      - generic [ref=f1e3367]: BLR
+                      - generic "2026-07-23T05:01:09.982Z" [ref=f1e3368]: 08:18:11
+                    - listitem [ref=f1e3369]:
+                      - generic [ref=f1e3371]: Auth
+                      - generic [ref=f1e3372]:
+                        - text: Session start
+                        - generic [ref=f1e3373]:
+                          - text: Rossie Schumm
+                          - generic [ref=f1e3374]: · user
+                      - generic [ref=f1e3375]: FFT
+                      - generic "2026-07-23T05:01:09.982Z" [ref=f1e3376]: 08:18:11
+                    - listitem [ref=f1e3377]:
+                      - generic [ref=f1e3379]: Auth
+                      - generic [ref=f1e3380]:
+                        - text: Login success
+                        - generic [ref=f1e3381]:
+                          - text: Rossie Schumm
+                          - generic [ref=f1e3382]: · user
+                      - generic [ref=f1e3383]: FFT
+                      - generic "2026-07-23T05:01:09.982Z" [ref=f1e3384]: 08:18:11
+                    - listitem [ref=f1e3385]:
+                      - generic [ref=f1e3387]: Access
+                      - generic [ref=f1e3388]:
+                        - text: Access deny
+                        - generic [ref=f1e3389]:
+                          - text: Þóra Öztürk
+                          - generic [ref=f1e3390]: · user
+                          - generic [ref=f1e3391]: → Matteo Schmeler
+                      - generic [ref=f1e3392]: NYC
+                      - generic "2026-07-23T05:01:08.542Z" [ref=f1e3393]: 08:18:11
+                    - listitem [ref=f1e3394]:
+                      - generic [ref=f1e3396]: Access
+                      - generic [ref=f1e3397]:
+                        - text: Access request
+                        - generic [ref=f1e3398]:
+                          - text: Melba Goldner-Bashirian
+                          - generic [ref=f1e3399]: · user
+                          - generic [ref=f1e3400]: → Matteo Schmeler
+                      - generic [ref=f1e3401]: BLR
+                      - generic "2026-07-23T05:01:08.542Z" [ref=f1e3402]: 08:18:11
+                    - listitem [ref=f1e3403]:
+                      - generic [ref=f1e3405]: Auth
+                      - generic [ref=f1e3406]:
+                        - text: Session end
+                        - generic [ref=f1e3407]:
+                          - text: Jacob Baumbach
+                          - generic [ref=f1e3408]: · user
+                      - generic [ref=f1e3409]: BLR
+                      - generic "2026-07-23T05:01:08.542Z" [ref=f1e3410]: 08:18:11
+                    - listitem [ref=f1e3411]:
+                      - generic [ref=f1e3413]: Txn
+                      - generic [ref=f1e3414]:
+                        - text: Payment SEPA
+                        - generic [ref=f1e3415]:
+                          - text: Maria Mueller
+                          - generic [ref=f1e3416]: · user
+                      - generic [ref=f1e3417]: LDN
+                      - generic "2026-07-23T05:01:06.982Z" [ref=f1e3418]: 08:18:11
+                    - listitem [ref=f1e3419]:
+                      - generic [ref=f1e3421]: Auth
+                      - generic [ref=f1e3422]:
+                        - text: Session start
+                        - generic [ref=f1e3423]:
+                          - text: Emma Block
+                          - generic [ref=f1e3424]: · user
+                      - generic [ref=f1e3425]: HKG
+                      - generic "2026-07-23T05:00:54.862Z" [ref=f1e3426]: 08:18:10
+                    - listitem [ref=f1e3427]:
+                      - generic [ref=f1e3429]: Auth
+                      - generic [ref=f1e3430]:
+                        - text: MFA success
+                        - generic [ref=f1e3431]:
+                          - text: Emma Block
+                          - generic [ref=f1e3432]: · user
+                      - generic [ref=f1e3433]: HKG
+                      - generic "2026-07-23T05:00:54.862Z" [ref=f1e3434]: 08:18:10
+                    - listitem [ref=f1e3435]:
+                      - generic [ref=f1e3437]: Auth
+                      - generic [ref=f1e3438]:
+                        - text: MFA challenge
+                        - generic [ref=f1e3439]:
+                          - text: Emma Block
+                          - generic [ref=f1e3440]: · user
+                      - generic [ref=f1e3441]: HKG
+                      - generic "2026-07-23T05:00:54.862Z" [ref=f1e3442]: 08:18:10
+                    - listitem [ref=f1e3443]:
+                      - generic [ref=f1e3445]: Auth
+                      - generic [ref=f1e3446]:
+                        - text: Login success
+                        - generic [ref=f1e3447]:
+                          - text: Emma Block
+                          - generic [ref=f1e3448]: · user
+                      - generic [ref=f1e3449]: HKG
+                      - generic "2026-07-23T05:00:54.862Z" [ref=f1e3450]: 08:18:10
+                    - listitem [ref=f1e3451]:
+                      - generic [ref=f1e3453]: Txn
+                      - generic [ref=f1e3454]:
+                        - text: Trade book
+                        - generic [ref=f1e3455]:
+                          - text: Carl Renner
+                          - generic [ref=f1e3456]: · user
+                      - generic [ref=f1e3457]: PNQ
+                      - generic "2026-07-23T05:00:50.302Z" [ref=f1e3458]: 08:18:10
+                    - listitem [ref=f1e3459]:
+                      - generic [ref=f1e3461]: Access
+                      - generic [ref=f1e3462]:
+                        - text: Access approve
+                        - generic [ref=f1e3463]:
+                          - text: Nicolas Bahringer
+                          - generic [ref=f1e3464]: · user
+                          - generic [ref=f1e3465]: → Kristy O'Towne
+                      - generic [ref=f1e3466]: FFT
+                      - generic "2026-07-23T05:00:48.802Z" [ref=f1e3467]: 08:18:10
+                    - listitem [ref=f1e3468]:
+                      - generic [ref=f1e3470]: Auth
+                      - generic [ref=f1e3471]:
+                        - text: Session start
+                        - generic [ref=f1e3472]:
+                          - text: Łukasz Skłodowska
+                          - generic [ref=f1e3473]: · user
+                      - generic [ref=f1e3474]: PNQ
+                      - generic "2026-07-23T05:00:48.802Z" [ref=f1e3475]: 08:18:10
+                    - listitem [ref=f1e3476]:
+                      - generic [ref=f1e3478]: Auth
+                      - generic [ref=f1e3479]:
+                        - text: MFA success
+                        - generic [ref=f1e3480]:
+                          - text: Łukasz Skłodowska
+                          - generic [ref=f1e3481]: · user
+                      - generic [ref=f1e3482]: PNQ
+                      - generic "2026-07-23T05:00:48.802Z" [ref=f1e3483]: 08:18:10
+                    - listitem [ref=f1e3484]:
+                      - generic [ref=f1e3486]: Auth
+                      - generic [ref=f1e3487]:
+                        - text: MFA challenge
+                        - generic [ref=f1e3488]:
+                          - text: Łukasz Skłodowska
+                          - generic [ref=f1e3489]: · user
+                      - generic [ref=f1e3490]: PNQ
+                      - generic "2026-07-23T05:00:48.802Z" [ref=f1e3491]: 08:18:10
+                    - listitem [ref=f1e3492]:
+                      - generic [ref=f1e3494]: Auth
+                      - generic [ref=f1e3495]:
+                        - text: Login success
+                        - generic [ref=f1e3496]:
+                          - text: Łukasz Skłodowska
+                          - generic [ref=f1e3497]: · user
+                      - generic [ref=f1e3498]: PNQ
+                      - generic "2026-07-23T05:00:48.802Z" [ref=f1e3499]: 08:18:10
+                    - listitem [ref=f1e3500]:
+                      - generic [ref=f1e3502]: Auth
+                      - generic [ref=f1e3503]:
+                        - text: Login success
+                        - generic [ref=f1e3504]:
+                          - text: Weldon Stroman
+                          - generic [ref=f1e3505]: · user
+                      - generic [ref=f1e3506]: BLR
+                      - generic "2026-07-23T05:00:45.742Z" [ref=f1e3507]: 08:18:10
+                    - listitem [ref=f1e3508]:
+                      - generic [ref=f1e3510]: Access
+                      - generic [ref=f1e3511]:
+                        - text: Recertification
+                        - generic [ref=f1e3512]:
+                          - text: recert-campaign
+                          - generic [ref=f1e3513]: · system
+                          - generic [ref=f1e3514]: → Minnie Kovacek
+                      - generic [ref=f1e3515]: PNQ
+                      - generic "2026-07-23T05:00:41.182Z" [ref=f1e3516]: 08:18:10
+                    - listitem [ref=f1e3517]:
+                      - generic [ref=f1e3519]: Txn
+                      - generic [ref=f1e3520]:
+                        - text: Trade book
+                        - generic [ref=f1e3521]:
+                          - text: Yessenia Rogahn
+                          - generic [ref=f1e3522]: · user
+                      - generic [ref=f1e3523]: BLR
+                      - generic "2026-07-23T05:00:33.682Z" [ref=f1e3524]: 08:18:10
+                    - listitem [ref=f1e3525]:
+                      - generic [ref=f1e3527]: Auth
+                      - generic [ref=f1e3528]:
+                        - text: Session start
+                        - generic [ref=f1e3529]:
+                          - text: Rachael Bruen
+                          - generic [ref=f1e3530]: · user
+                      - generic [ref=f1e3531]: SIN
+                      - generic "2026-07-23T05:00:33.682Z" [ref=f1e3532]: 08:18:10
+                    - listitem [ref=f1e3533]:
+                      - generic [ref=f1e3535]: Auth
+                      - generic [ref=f1e3536]:
+                        - text: Login success
+                        - generic [ref=f1e3537]:
+                          - text: Rachael Bruen
+                          - generic [ref=f1e3538]: · user
+                      - generic [ref=f1e3539]: SIN
+                      - generic "2026-07-23T05:00:33.682Z" [ref=f1e3540]: 08:18:10
+                    - listitem [ref=f1e3541]:
+                      - generic [ref=f1e3543]: Auth
+                      - generic [ref=f1e3544]:
+                        - text: Session start
+                        - generic [ref=f1e3545]:
+                          - text: Oleta Keebler
+                          - generic [ref=f1e3546]: · user
+                      - generic [ref=f1e3547]: FFT
+                      - generic "2026-07-23T05:00:21.502Z" [ref=f1e3548]: 08:18:10
+            - generic [ref=f1e1002]:
+              - region "Reference OneIM receiver" [ref=f1e1003]:
+                - generic [ref=f1e1009]:
+                  - generic [ref=f1e1010]:
+                    - generic [ref=f1e1011]:
+                      - generic [ref=f1e1012]: Queue depth
+                      - generic [ref=f1e1018]: "0"
+                    - generic [ref=f1e1019]:
+                      - generic [ref=f1e1020]: Provisioned
+                      - generic [ref=f1e1024]: "187"
+                    - generic [ref=f1e1025]:
+                      - generic [ref=f1e1026]: Failed
+                      - generic [ref=f1e1031]: "8"
+                    - generic [ref=f1e1032]:
+                      - generic [ref=f1e1033]: Avg provision
+                      - generic [ref=f1e1038]: 248 ms
+                  - generic [ref=f1e1039]:
+                    - generic [ref=f1e1040]:
+                      - generic [ref=f1e1041]: SoD violations
+                      - generic [ref=f1e1048]: "0"
+                      - generic [ref=f1e1049]: clear
+                    - generic [ref=f1e1050]:
+                      - generic [ref=f1e1051]: Orphan accounts
+                      - generic [ref=f1e1055]: "50"
+                      - generic [ref=f1e1056]: no owner
+                    - generic [ref=f1e1057]:
+                      - generic [ref=f1e1058]: Dormant accounts
+                      - generic [ref=f1e1062]: "0"
+                      - generic [ref=f1e1063]: clear
+                  - figure [ref=f1e1065]:
+                    - generic [ref=f1e1066]:
+                      - generic [ref=f1e1067]: Provisioning by connector
+                      - generic [ref=f1e1072]:
+                        - generic [ref=f1e1073]: Provisioned
+                        - generic [ref=f1e1076]: Failed
+                    - 'img "Provisioning by connector. GenericConnector: 102 provisioned, 5 failed; ActiveDirectory: 44 provisioned, 0 failed; Exchange: 41 provisioned, 3 failed; SAP: 0 provisioned, 0 failed; Mainframe: 0 provisioned, 0 failed" [ref=f1e3549]':
+                      - generic [ref=f1e1082]:
+                        - generic:
+                          - generic:
+                            - paragraph: GenericConnector
+                            - list:
+                              - listitem:
+                                - generic: Provisioned
+                                - generic: "102"
+                              - listitem:
+                                - generic: Failed
+                                - generic: "5"
+                        - application [ref=f1e1083]:
+                          - generic [ref=f1e1097]:
+                            - generic [ref=f1e1098]:
+                              - generic [ref=f1e1099]: "0"
+                              - generic [ref=f1e2954]: "30"
+                              - generic [ref=f1e2956]: "60"
+                              - generic [ref=f1e2958]: "90"
+                              - generic [ref=f1e2960]: "120"
+                            - generic [ref=f1e1109]:
+                              - generic [ref=f1e1110]: GenericConnector
+                              - generic [ref=f1e1112]: ActiveDirectory
+                              - generic [ref=f1e1114]: Exchange
+                              - generic [ref=f1e1116]: SAP
+                              - generic [ref=f1e1118]: Mainframe
+                    - group [ref=f1e1120]:
+                      - generic "Data table" [ref=f1e1121] [cursor=pointer]
+                  - paragraph [ref=f1e1122]:
+                    - generic [ref=f1e1123]: "Total ingested: 214"
+                    - generic [ref=f1e1124]: "Last ingest: 2s ago"
+              - region "Delivery adapter" [ref=f1e1125]:
+                - generic [ref=f1e1126]:
+                  - generic [ref=f1e1127]: Delivery adapter
+                  - generic [ref=f1e1131]: Circuit Closed
+                - generic [ref=f1e1135]:
+                  - generic [ref=f1e1136]:
+                    - generic [ref=f1e1137]:
+                      - generic [ref=f1e1138]: In flight
+                      - generic [ref=f1e1143]: "0"
+                    - generic [ref=f1e1144]:
+                      - generic [ref=f1e1145]: Queue depth
+                      - generic [ref=f1e1151]: "0"
+                    - generic [ref=f1e1152]:
+                      - generic [ref=f1e1153]: Delivered
+                      - generic [ref=f1e1157]: 2,276
+                    - generic [ref=f1e1158]:
+                      - generic [ref=f1e1159]: Dropped
+                      - generic [ref=f1e1163]: "0"
+                  - generic [ref=f1e1164]:
+                    - generic [ref=f1e1165]:
+                      - generic [ref=f1e1166]: Latency p50
+                      - generic [ref=f1e1168]: 0 ms
+                    - generic [ref=f1e1169]:
+                      - generic [ref=f1e1170]: Latency p95
+                      - generic [ref=f1e1172]: 24 ms
+                    - generic [ref=f1e1173]:
+                      - generic [ref=f1e1174]: Latency p99
+                      - generic [ref=f1e1176]: 27 ms
+  - region "Notifications"
+  - generic [ref=f1e1177]: 08:18:12

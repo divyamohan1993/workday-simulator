@@ -138,10 +138,16 @@ function defaultTimezoneWeights(): TimezoneWeights {
 export function buildDefaultScenario(config: AppConfig, targetId: string, nowIso: string): ScenarioConfig {
   return {
     id: DEFAULT_SCENARIO_ID,
-    name: 'Deutsche Bank - Typical Workday',
+    name: 'Deutsche Bank - Natural Workday',
     description:
-      'A production-like Deutsche Bank workday: multi-timezone logins, access governance, banking transactions and a thin lifecycle and compliance stream, delivered to the built-in OneIM receiver.',
-    baselineRps: 25,
+      'A full, natural Deutsche Bank day delivered to the built-in OneIM receiver: multi-timezone ' +
+      'logins, access governance, banking transactions and a lifecycle and compliance stream, carrying ' +
+      'the ambient exception rate of a real day (failed logins, lockouts, SoD violations, orphan and ' +
+      'dormant accounts, break-glass), and punctuated by organic, randomized security and operational ' +
+      'INCIDENTS, credential-stuffing waves, insider activity, ransomware attempts, audit surges, mass ' +
+      'resets, that occur a few times across the accelerated day and differ every run. One run is one ' +
+      'accelerated 24h day.',
+    baselineRps: 40,
     maxRps: Math.min(config.MAX_RPS, 500),
     workdayAccel: config.WORKDAY_ACCEL,
     timezoneWeights: defaultTimezoneWeights(),
@@ -150,6 +156,13 @@ export function buildDefaultScenario(config: AppConfig, targetId: string, nowIso
       ...(DEFAULT_EVENT_MIX.byKind ? { byKind: { ...DEFAULT_EVENT_MIX.byKind } } : {}),
     },
     chaos: [],
+    // Organic threat weaving on by default: the runtime spawns coordinated incidents on a
+    // Poisson schedule through the day (see ThreatProfile). Sane defaults are applied by
+    // resolveThreatProfile; enabling it is enough.
+    threatProfile: { enabled: true },
+    // One run is one accelerated 24-hour day, so it plays the full night -> morning ramp ->
+    // peak -> wind-down arc and then completes (which also bounds incident accumulation).
+    durationSec: Math.max(60, Math.round(86_400 / config.WORKDAY_ACCEL)),
     targetId,
     seed: config.SEED,
     createdAt: nowIso,

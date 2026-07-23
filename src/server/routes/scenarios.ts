@@ -43,6 +43,7 @@ function toScenario(input: ScenarioInput, id: string, createdAt: string, updated
     timezoneWeights: { byLocation: { ...input.timezoneWeights.byLocation } },
     eventMix: resolveEventMix(input.eventMix),
     chaos: input.chaos,
+    ...(input.threatProfile ? { threatProfile: input.threatProfile } : {}),
     targetId: input.targetId,
     durationSec: input.durationSec,
     seed: input.seed,
@@ -89,6 +90,8 @@ export function registerScenarioRoutes(app: FastifyInstance, ctx: ServerContext)
       timezoneWeights: { byLocation: { ...input.timezoneWeights.byLocation } },
       eventMix: resolveEventMix(input.eventMix),
       chaos: input.chaos,
+      // Present-with-undefined clears a prior profile when a PUT omits it (replace semantics).
+      threatProfile: input.threatProfile,
       targetId: input.targetId,
       durationSec: input.durationSec,
       seed: input.seed,
